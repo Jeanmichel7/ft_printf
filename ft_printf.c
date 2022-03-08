@@ -6,7 +6,7 @@
 /*   By: jrasser <jrasser@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/07 16:16:54 by jrasser           #+#    #+#             */
-/*   Updated: 2022/03/08 04:21:12 by jrasser          ###   ########.fr       */
+/*   Updated: 2022/03/08 04:36:38 by jrasser          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ static void	ft_sub_printf(char c, va_list ptr)
 	else if (c == 'x')
 		ft_putunbr_base(va_arg(ptr, unsigned int), "0123456789abcdef");
 	else if (c == 'X')
-		ft_putunbr_base(va_arg(ptr, unsigned int), "0123456789abcdef");
+		ft_putunbr_base(va_arg(ptr, unsigned int), "0123456789ABCDEF");
 	else if (c == 's')
 		ft_putstr(va_arg(ptr, char *));
 	else if (c == 'c')
