@@ -6,11 +6,11 @@
 /*   By: jrasser <jrasser@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/08 01:18:04 by jrasser           #+#    #+#             */
-/*   Updated: 2022/03/08 03:51:21 by jrasser          ###   ########.fr       */
+/*   Updated: 2022/03/08 04:28:27 by jrasser          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "../include/ft_printf.h"
 #include <unistd.h>
 
 static void	ft_putuchar(char c)

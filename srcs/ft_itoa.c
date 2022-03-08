@@ -6,11 +6,11 @@
 /*   By: jrasser <jrasser@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/25 21:00:45 by jrasser           #+#    #+#             */
-/*   Updated: 2022/03/08 03:47:17 by jrasser          ###   ########.fr       */
+/*   Updated: 2022/03/08 04:28:07 by jrasser          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "../include/ft_printf.h"
 
 static unsigned int	ft_itoa_len(int n)
 {
@@ -37,8 +37,6 @@ void	ft_itoa(int n)
 	if (n < 0)
 		sign = 1;
 	str = malloc(sizeof(char) * (ft_itoa_len(n) + 1 + sign));
-	if (str == NULL)
-		return (NULL);
 	str[ft_itoa_len(n) + sign] = '\0';
 	i = ft_itoa_len(n) + sign - 1;
 	if (n == 0)

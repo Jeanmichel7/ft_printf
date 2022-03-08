@@ -6,19 +6,19 @@
 #    By: jrasser <jrasser@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/02/01 20:15:09 by jrasser           #+#    #+#              #
-#    Updated: 2022/03/08 03:47:52 by jrasser          ###   ########.fr        #
+#    Updated: 2022/03/08 04:29:47 by jrasser          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 SRCS		= ft_printf.c \
-			ft_putstr.c \
-			ft_itoa.c \
-			ft_uitoa.c \
-			ft_litoa.c \
-			ft_strlen.c \
-			ft_putnbr_base.c \
-			ft_putunbr_base.c \
-			ft_put_pointer.c
+			srcs/ft_putstr.c \
+			srcs/ft_itoa.c \
+			srcs/ft_uitoa.c \
+			srcs/ft_litoa.c \
+			srcs/ft_strlen.c \
+			srcs/ft_putnbr_base.c \
+			srcs/ft_putunbr_base.c \
+			srcs/ft_put_pointer.c
 
 OBJS		= ${SRCS:.c=.o}
 

@@ -1,39 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_put_pointer.c                                   :+:      :+:    :+:   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jrasser <jrasser@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/08 01:18:04 by jrasser           #+#    #+#             */
-/*   Updated: 2022/03/08 03:50:32 by jrasser          ###   ########.fr       */
+/*   Created: 2022/02/21 16:38:52 by jrasser           #+#    #+#             */
+/*   Updated: 2022/03/08 04:28:44 by jrasser          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
-#include <unistd.h>
+#include "../include/ft_printf.h"
 
-static void	ft_putptrchar(char c) {
-	write(1, &c, 1);
-}
-
-void	ft_put_pointer(unsigned long int nbr, char *base)
+size_t	ft_strlen(const char *s)
 {
-	int	size_base;
-	int	nbr_final[100];
-	int	i;
+	size_t	i;
 
 	i = 0;
-	size_base = 16;
-	ft_putptrchar('0');
-	ft_putptrchar('x');
-	while (nbr)
-	{
-		nbr_final[i] = nbr % size_base;
-		nbr = nbr / size_base;
+	while (s[i])
 		i++;
-	}
-	while (--i >= 0)
-		ft_putptrchar(base[nbr_final[i]]);
-
+	return (i);
 }

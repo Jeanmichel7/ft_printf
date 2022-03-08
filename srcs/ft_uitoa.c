@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_litoa.c                                         :+:      :+:    :+:   */
+/*   ft_uitoa.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jrasser <jrasser@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/25 21:00:45 by jrasser           #+#    #+#             */
-/*   Updated: 2022/03/08 03:49:30 by jrasser          ###   ########.fr       */
+/*   Updated: 2022/03/08 04:28:37 by jrasser          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "../include/ft_printf.h"
 
-static unsigned int	ft_litoa_len(long int n)
+static unsigned int	ft_uitoa_len(unsigned int n)
 {
 	unsigned int	len;
 
@@ -27,31 +27,22 @@ static unsigned int	ft_litoa_len(long int n)
 	return (len);
 }
 
-void	ft_litoa(long int n)
+void	ft_uitoa(unsigned int n)
 {
-	char			*str;
-	unsigned int	i;
-	unsigned int	sign;
+	char				*str;
+	unsigned long int	i;
 
-	sign = 0;
-	if (n < 0)
-		sign = 1;
-	str = malloc(sizeof(char) * (ft_litoa_len(n) + 1 + sign));
+	str = malloc(sizeof(char) * (ft_uitoa_len(n) + 1));
 	if (str == NULL)
 		return (NULL);
-	str[ft_litoa_len(n) + sign] = '\0';
-	i = ft_litoa_len(n) + sign - 1;
+	str[ft_uitoa_len(n)] = '\0';
+	i = ft_uitoa_len(n) - 1;
 	if (n == 0)
 		str[i--] = '0';
 	while (n)
 	{
-		if (sign)
-			str[i--] = ((n % 10) * -1) + '0';
-		else
-			str[i--] = (n % 10) + '0';
+		str[i--] = (n % 10) + '0';
 		n /= 10;
 	}
-	if (sign)
-		str[i] = '-';
 	ft_putstr(str);
 }
