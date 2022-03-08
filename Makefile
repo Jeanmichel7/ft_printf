@@ -6,7 +6,7 @@
 #    By: jrasser <jrasser@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/02/01 20:15:09 by jrasser           #+#    #+#              #
-#    Updated: 2022/03/08 04:29:47 by jrasser          ###   ########.fr        #
+#    Updated: 2022/03/08 04:33:07 by jrasser          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,9 +28,11 @@ CC			= gcc
 
 RM			= rm -f
 
-CFLAGS		= -Wall -Wextra
+CFLAGS		= -Wall -Wextra -Werror
 
-.c.o:		${CC} ${CFLAGS} -c -o ${<:.c=.o}
+LDFLAGS		= -I./includes/
+
+.c.o:		${CC} ${CFLAGS} -c ${LDFLAGS} -o ${<:.c=.o}
 
 ${NAME}:	${OBJS}
 			ar rc ${NAME} ${OBJS}
