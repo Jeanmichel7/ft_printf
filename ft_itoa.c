@@ -6,7 +6,7 @@
 /*   By: jrasser <jrasser@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/25 21:00:45 by jrasser           #+#    #+#             */
-/*   Updated: 2022/03/08 03:14:13 by jrasser          ###   ########.fr       */
+/*   Updated: 2022/03/08 03:47:17 by jrasser          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ static unsigned int	ft_itoa_len(int n)
 	return (len);
 }
 
-char	*ft_itoa(int n)
+void	ft_itoa(int n)
 {
 	char			*str;
 	unsigned int	i;
@@ -53,5 +53,5 @@ char	*ft_itoa(int n)
 	}
 	if (sign)
 		str[i] = '-';
-	return (str);
+	ft_putstr(str);
 }

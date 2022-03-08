@@ -6,7 +6,7 @@
 /*   By: jrasser <jrasser@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/07 17:03:47 by jrasser           #+#    #+#             */
-/*   Updated: 2022/03/08 03:14:44 by jrasser          ###   ########.fr       */
+/*   Updated: 2022/03/08 03:27:38 by jrasser          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,10 @@ int	main(void)
 	printf("\n**********  STRING  ********\n");
 	printf(   "real : %s apres\n", "coucou");
 	ft_printf("mine : %s apres\n", "coucou");
+
+	printf("\n**********  CHAR  ********\n");
+	printf(   "real : %c\n", 't');
+	ft_printf("mine : %c\n", 't');
 
 	printf("\n**********  INT  ********\n");
 	printf(	  "real : %d\n", -123.5);

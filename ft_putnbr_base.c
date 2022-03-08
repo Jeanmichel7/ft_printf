@@ -6,18 +6,19 @@
 /*   By: jrasser <jrasser@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/08 01:18:04 by jrasser           #+#    #+#             */
-/*   Updated: 2022/03/08 03:14:03 by jrasser          ###   ########.fr       */
+/*   Updated: 2022/03/08 03:51:14 by jrasser          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 #include <unistd.h>
 
-void	ft_putchar(char c) {
+static void	ft_putchar(char c)
+{
 	write(1, &c, 1);
 }
 
-int		check_base(char *base)
+static int	check_base(char *base)
 {
 	int	i;
 	int	z;

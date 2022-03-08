@@ -6,11 +6,12 @@
 #    By: jrasser <jrasser@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/02/01 20:15:09 by jrasser           #+#    #+#              #
-#    Updated: 2022/03/08 03:08:27 by jrasser          ###   ########.fr        #
+#    Updated: 2022/03/08 03:47:52 by jrasser          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 SRCS		= ft_printf.c \
+			ft_putstr.c \
 			ft_itoa.c \
 			ft_uitoa.c \
 			ft_litoa.c \

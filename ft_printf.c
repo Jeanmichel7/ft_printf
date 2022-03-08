@@ -6,66 +6,57 @@
 /*   By: jrasser <jrasser@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/07 16:16:54 by jrasser           #+#    #+#             */
-/*   Updated: 2022/03/08 03:12:44 by jrasser          ###   ########.fr       */
+/*   Updated: 2022/03/08 04:06:33 by jrasser          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-/*
-* va_start(va_list ap, argN)	Cela permet d’accéder aux arguments de fonction variadiques.
-* va_arg(va_list ap, tapez)	Celui-ci accède au prochain argument de la fonction variadique.
-* va_copy(va_list dest, va_list src)	Cela fait une copie des arguments de la fonction variadique.
-* va_end(va_list ap)	Ceci termine le parcours des arguments de la fonction variadique.
-**/
-
 #include "ft_printf.h"
 
-
-void	ft_printf_int(va_list ptr)
+static void	ft_printf_char(va_list ptr)
 {
-	char	*str;
-
-	str = ft_itoa(va_arg(ptr, int));
-	write(1, str, ft_strlen(str));
+	int	c;
+	
+	c = va_arg(ptr, int);
+	write(1, &c, 1);
 }
 
-void	ft_printf_unsigned_int(va_list ptr)
+static int	ft_sub_printf(char c, va_list ptr)
 {
-	char				*str;
+	int	i;
 
-	str = ft_uitoa(va_arg(ptr, unsigned int));
-	write(1, str, ft_strlen(str));
+	i = 0;
+	if (c == 'd' || c == 'i')
+		ft_itoa(va_arg(ptr, int));
+	else if (c == 'o')
+		ft_putunbr_base(va_arg(ptr, unsigned int), "01234567");
+	else if (c == 'u')
+		ft_uitoa(va_arg(ptr, unsigned int));
+	else if (c == 'x')
+		ft_putunbr_base(va_arg(ptr, unsigned int), "0123456789abcdef");
+	else if (c == 'X')
+		ft_putunbr_base(va_arg(ptr, unsigned int), "0123456789abcdef");
+	else if (c == 's')
+		ft_putstr(va_arg(ptr, char *));
+	else if (c == 'c')
+		ft_printf_char(ptr);
+	else if (c == 'p')
+		ft_put_pointer(va_arg(ptr, unsigned long int), "0123456789abcdef");
+	else
+		write(1, &c, 1);
+	return (i);
 }
 
-void	ft_printf_base(va_list ptr, char *base)
+static int	ft_sub_printf_double(char c, va_list ptr)
 {
-	ft_putunbr_base(va_arg(ptr, unsigned int), base);
-}
-
-void	ft_printf_pointer(va_list ptr, char *base)
-{
-	ft_put_pointer(va_arg(ptr, unsigned long int), base);
-}
-
-void	ft_printf_long_int(va_list ptr)
-{
-	char	*str;
-
-	str = ft_litoa(va_arg(ptr, long int));
-	write(1, str, ft_strlen(str));
-}
-
-/* STR */
-void	ft_printf_str(va_list ptr)
-{
-	char	*str;
-
-	str = va_arg(ptr, char *);
-	write(1, str, ft_strlen(str));
-}
-
-void	ft_printf_char(va_list ptr)
-{
-	write(1, va_arg(ptr, char *), ft_strlen(va_arg(ptr, char *)));
+	if (c == 'd')
+		ft_litoa(va_arg(ptr, long int));
+	else if (c == 'o')
+		ft_putunbr_base(va_arg(ptr, unsigned int), "01234567");
+	else if (c == 'u')
+		ft_uitoa(va_arg(ptr, unsigned int));
+	else
+		return (0);
+	return (1);
 }
 
 int	ft_printf(const char *str, ...)
@@ -75,47 +66,20 @@ int	ft_printf(const char *str, ...)
 
 	i = 0;
 	va_start(ptr, str);
-	//printf("len de s : %ld\n", ft_strlen(va_arg(ptr, char *)));
 	while (str[i])
 	{
-		//printf(" %c => %d" , s[i], s[i]);
 		if (str[i] == '%' && str[i + 1])
 		{
 			i++;
-			if (str[i] == 'd' || str[i] == 'i')
-				ft_printf_int(ptr);
-			else if (str[i] == 'o')
-				ft_printf_base(ptr, "01234567");
-			else if (str[i] == 'u')
-				ft_printf_unsigned_int(ptr);
-			else if (str[i] == 'x')
-				ft_printf_base(ptr, "0123456789abcdef");
-			else if (str[i] == 'X')
-				ft_printf_base(ptr, "0123456789ABCDEF");
-			else if (str[i] == 'l')
-			{
-				i++;
-				if (str[i] == 'd')
-					ft_printf_long_int(ptr);
-				if (str[i] == 'o')
-					ft_printf_base(ptr, "01234567");
-				if (str[i] == 'u')
-					ft_printf_unsigned_int(ptr);
-			}
-			else if (str[i] == 's')
-				ft_printf_str(ptr);
-			else if (str[i] == 'c')
-				ft_printf_char(ptr);
-			else if (str[i] == 'p')
-				ft_printf_pointer(ptr, "0123456789abcdef");
-			else
-				write(1, &str[i], 1);
+			if (str[i] == 'l')
+				i += ft_sub_printf_double(str[i + 1], ptr);
+			else 
+				i += ft_sub_printf(str[i], ptr);
 		}
 		else
 			write(1, &str[i], 1);
 		i++;
 	}
-
+	va_end(ptr);
 	return (0);
-	
 }
