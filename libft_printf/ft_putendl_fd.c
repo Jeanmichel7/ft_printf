@@ -1,25 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   ft_putendl_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jrasser <jrasser@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/07 16:11:02 by jrasser           #+#    #+#             */
-/*   Updated: 2022/03/10 21:44:15 by jrasser          ###   ########.fr       */
+/*   Created: 2022/02/25 21:01:51 by jrasser           #+#    #+#             */
+/*   Updated: 2022/03/05 16:00:29 by jrasser          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
+#include "libft.h"
 
-
-# include <stdarg.h>
-# include "libft.h"
-# include <unistd.h>
-# include <stdlib.h>
-# include <stdio.h>
-
-int				ft_printf(const char *str, ...);
-
-#endif
+void	ft_putendl_fd(char *s, int fd)
+{
+	if (s)
+	{
+		write(fd, s, ft_strlen(s));
+		write(fd, "\n", 1);
+	}
+}

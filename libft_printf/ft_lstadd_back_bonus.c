@@ -1,25 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   ft_lstadd_back.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jrasser <jrasser@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/07 16:11:02 by jrasser           #+#    #+#             */
-/*   Updated: 2022/03/10 21:44:15 by jrasser          ###   ########.fr       */
+/*   Created: 2022/02/27 03:29:52 by jrasser           #+#    #+#             */
+/*   Updated: 2022/03/05 19:15:53 by jrasser          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
+#include "libft.h"
 
+void	ft_lstadd_back(t_list **lst, t_list *new)
+{
+	t_list	*tmp;
 
-# include <stdarg.h>
-# include "libft.h"
-# include <unistd.h>
-# include <stdlib.h>
-# include <stdio.h>
-
-int				ft_printf(const char *str, ...);
-
-#endif
+	if (*lst)
+	{
+		tmp = &**lst;
+		while ((*lst)->next)
+			*lst = (*lst)->next;
+		(*lst)->next = new;
+		*lst = tmp;
+	}
+	else
+	{
+		*lst = new;
+	}
+}

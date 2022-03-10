@@ -1,24 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putunbr_base.c                                  :+:      :+:    :+:   */
+/*   ft_putnbr_base.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jrasser <jrasser@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/08 01:18:04 by jrasser           #+#    #+#             */
-/*   Updated: 2022/03/08 04:28:27 by jrasser          ###   ########.fr       */
+/*   Updated: 2022/03/10 21:13:26 by jrasser          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/ft_printf.h"
+#include "libft.h"
 #include <unistd.h>
 
-static void	ft_putuchar(char c)
+static void	ft_putchar(char c)
 {
 	write(1, &c, 1);
 }
 
-static int	check_ubase(char *base)
+static int	check_base(char *base)
 {
 	int	i;
 	int	z;
@@ -45,7 +45,7 @@ static int	check_ubase(char *base)
 	return (1);
 }
 
-void	ft_putunbr_base(unsigned int nbr, char *base)
+void	ft_putnbr_base(int nbr, char *base)
 {
 	int	size_base;
 	int	nbr_final[100];
@@ -53,8 +53,13 @@ void	ft_putunbr_base(unsigned int nbr, char *base)
 
 	i = 0;
 	size_base = 0;
-	if (check_ubase(base))
+	if (check_base(base))
 	{
+		if (nbr < 0)
+		{
+			nbr = -nbr;
+			ft_putchar('-');
+		}
 		while (base[size_base])
 			size_base++;
 		while (nbr)
@@ -64,6 +69,6 @@ void	ft_putunbr_base(unsigned int nbr, char *base)
 			i++;
 		}
 		while (--i >= 0)
-			ft_putuchar(base[nbr_final[i]]);
+			ft_putchar(base[nbr_final[i]]);
 	}
 }

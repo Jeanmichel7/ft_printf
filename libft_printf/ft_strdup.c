@@ -1,25 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr.c                                        :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jrasser <jrasser@student.42.fr>            +#+  +:+       +#+        */
+/*   By: jrasser <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/08 03:46:26 by jrasser           #+#    #+#             */
-/*   Updated: 2022/03/08 04:32:21 by jrasser          ###   ########.fr       */
+/*   Created: 2022/02/24 16:49:31 by jrasser           #+#    #+#             */
+/*   Updated: 2022/02/24 17:48:38 by jrasser          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/ft_printf.h"
+#include "libft.h"
 
-void	ft_putstr(char *str)
+char	*ft_strdup(const char *s1)
 {
-	int	i;
+	char	*cpy;
+	int		len;
+	int		i;
 
 	i = 0;
-	while (str[i])
+	len = ft_strlen(s1);
+	cpy = malloc((len + 1) * sizeof(char));
+	if (cpy == NULL)
+		return (NULL);
+	while (s1[i] != '\0')
 	{
-		write(1, &str[i], 1);
+		cpy[i] = s1[i];
 		i++;
 	}
+	cpy[i] = '\0';
+	return (cpy);
 }

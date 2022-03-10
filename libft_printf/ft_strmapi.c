@@ -1,39 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_put_pointer.c                                   :+:      :+:    :+:   */
+/*   ft_strmapi.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jrasser <jrasser@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/08 01:18:04 by jrasser           #+#    #+#             */
-/*   Updated: 2022/03/08 04:28:30 by jrasser          ###   ########.fr       */
+/*   Created: 2022/02/25 21:01:01 by jrasser           #+#    #+#             */
+/*   Updated: 2022/03/05 15:58:39 by jrasser          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/ft_printf.h"
-#include <unistd.h>
+#include "libft.h"
 
-static void	ft_putptrchar(char c) {
-	write(1, &c, 1);
-}
-
-void	ft_put_pointer(unsigned long int nbr, char *base)
+char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
-	int	size_base;
-	int	nbr_final[100];
-	int	i;
+	char			*str;
+	unsigned int	i;
+	unsigned int	len;
 
+	if (!s)
+		return (NULL);
+	len = ft_strlen(s);
+	str = malloc(sizeof(char) * (len + 1));
+	if (str == NULL)
+		return (NULL);
 	i = 0;
-	size_base = 16;
-	ft_putptrchar('0');
-	ft_putptrchar('x');
-	while (nbr)
+	while (s[i])
 	{
-		nbr_final[i] = nbr % size_base;
-		nbr = nbr / size_base;
+		str[i] = f(i, s[i]);
 		i++;
 	}
-	while (--i >= 0)
-		ft_putptrchar(base[nbr_final[i]]);
-
+	str[i] = '\0';
+	return (str);
 }
