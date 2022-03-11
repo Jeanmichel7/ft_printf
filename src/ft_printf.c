@@ -6,58 +6,42 @@
 /*   By: jrasser <jrasser@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/07 16:16:54 by jrasser           #+#    #+#             */
-/*   Updated: 2022/03/10 21:16:42 by jrasser          ###   ########.fr       */
+/*   Updated: 2022/03/11 04:00:22 by jrasser          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "include/ft_printf.h"
+#include "../include/ft_printf.h"
 
-static unsigned int	ft_printf_char(va_list ptr)
+static int	ft_sub_printf(char c, va_list ptr, int *z);
+
+static unsigned int	ft_sub_flag(const char *str, int i, va_list ptr, int *z)
 {
-	int	c;
-
-	c = va_arg(ptr, int);
-	write(1, &c, 1);
-	return (1);
-}
-
-static unsigned int	ft_put_char(char c)
-{
-	write(1, &c, 1);
-	return (1);
-}
-
-/*
-static unsigned int	ft_sub_flag(char *str, int i, va_list ptr, int *z)
-{
-	int	j;
-	int minus;
-	int	dot;
-	int	nul;
-	int number;
+	int		j;
+	char	*nbr;
+	int		dif_z;
 
 	j = 0;
-	minus = 0;
-	dot = 0;
-	nul = 0;
-	number = 0;
-	j = i;
-	while (str[j] == '0' || str[j] == '-' || str[j] == '.' || (str[j] >= '0' && str[j] <= '9'))
+	dif_z = *z;
+	if (str[i++] == '-')
 	{
-		if (str[j] == '0')
-			nul = 1;
-		else if (str[j] == '-')
-			minus = 1;
-		else if (str[j] == '.')
-			dot = 1;
-		else if (str[j] >= '0' && str[j] < '9')
-			number = 1;
-		j++;
+		while (str[i] >= '0' && str[i] <= '9')
+		{
+			i++;
+			j++;
+		}
+		nbr = malloc(sizeof(char) * (j + 1));
+		i -= j;
+		j = 0;
+		while (str[i] >= '0' && str[i] <= '9')
+			nbr[j++] = str[i++];
+		nbr[j] = '\0';
+		ft_sub_printf(str[i], ptr, z);
+		dif_z = *z - dif_z;
+		while (dif_z++ < ft_atoi(nbr))
+			*z += ft_put_char(' ');
 	}
-	return (i + j);
+	return (j + 1);
 }
-*/
-
 
 static int	ft_sub_printf_double(char c, va_list ptr, int *z)
 {
@@ -90,11 +74,6 @@ static int	ft_sub_printf(char c, va_list ptr, int *z)
 		*z += ft_printf_char(ptr);
 	else if (c == 'p')
 		*z += ft_put_ptr(va_arg(ptr, unsigned long int), "0123456789abcdef");
-	else
-	{
-		write(1, &c, 1);
-		*z += 1;
-	}
 	return (1);
 }
 
@@ -112,10 +91,10 @@ int	ft_printf(const char *str, ...)
 		if (str[i] == '%' && str[i + 1])
 		{
 			i++;
-			if (str[i] == 'l')
+			if (str[i] == '-' || str[i] == '0' || str[i] == '.')
+				i += ft_sub_flag(str, i, ptr, &z);
+			else if (str[i] == 'l')
 				i += ft_sub_printf_double(str[i + 1], ptr, &z);
-			//else if (str[i] == '-' || str[i] == '0' || str[i] == '.')
-				//i += ft_sub_flag(str, i, ptr, &z);
 			else
 				ft_sub_printf(str[i], ptr, &z);
 		}

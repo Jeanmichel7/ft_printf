@@ -6,7 +6,7 @@
 #    By: jrasser <jrasser@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/02/01 20:15:09 by jrasser           #+#    #+#              #
-#    Updated: 2022/03/10 21:59:56 by jrasser          ###   ########.fr        #
+#    Updated: 2022/03/11 00:15:14 by jrasser          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -52,11 +52,6 @@ ft_putstr.c \
 ft_putunbr_base.c \
 ft_uitoa.c
 
-
-
-
-
-
 SRCS_BONUS	= \
 ft_lstnew_bonus.c \
 ft_lstadd_front_bonus.c \
@@ -79,8 +74,6 @@ CC			= gcc
 RM			= rm -f
 
 CFLAGS		= -Wall -Wextra -Werror
-
-.c.o:		${CC} ${CFLAGS}-c $< -o ${<:.c=.o}
 
 ${NAME}:	${OBJS}
 			ar rc ${NAME} ${OBJS}

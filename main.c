@@ -6,11 +6,11 @@
 /*   By: jrasser <jrasser@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/07 17:03:47 by jrasser           #+#    #+#             */
-/*   Updated: 2022/03/10 21:59:01 by jrasser          ###   ########.fr       */
+/*   Updated: 2022/03/11 03:49:43 by jrasser          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <ft_printf.h>
+#include "ft_printf.h"
 #include <stdio.h>
 
 int AddNumbers(int n, ...)
@@ -111,32 +111,41 @@ int	main(void)
 
 
 	printf("\n\n**********  BONUS  ********\n");
-	printf("%d\n", printf(   "%0 s %-s\n", "a que bla-- 0la0", "boub0lou"));
-	printf("%d\n", ft_printf("-", 0));
 
+	// - . accumulable (nb / str)
+	printf("\n**********  %%-XXduxs  ********\n");
 
-	printf("\n**********  P  ********\n");
-	printf("%-d\n",    42);
-	printf("%-d\n",    42);
-	printf("%0-.5d\n",  42);
-	printf("%-5d\n\n", 42);
+	printf("%d\n", printf(   "'%-50u'",    42));
+	printf("%d\n\n", ft_printf("'%-50u'",    42));
+	printf("%d\n", printf(   "'%-0d'",    42));
+	printf("%d\n\n", ft_printf("'%-0d'",    42));
+	printf("%d\n", printf(   "'%-d'",    42));
+	printf("%d\n\n", ft_printf("'%-d'",    42));
+	printf("%d\n", printf(   "'%-5d'",    42));
+	printf("%d\n\n", ft_printf("'%-5d'",    42));
+	printf("%d\n", printf(   "'%-5s'",    "42"));
+	printf("%d\n\n", ft_printf("'%-5s'",    "42"));
+	printf("%d\n", printf(   "'%-.5d'",    42));
+	printf("%d\n\n", ft_printf("'%-.5d'",    42));
 
-	printf("%0-s\n",    "voici une phrqse 0 qvec 00 des mots ");
-	printf("%-0s\n",    "voici une phrqse 0 qvec 00 des mots ");
-	printf("%-0.5s\n",  "    voici une phrqse 0 qvec 00 des mots ");
-	printf("%-0s\n\n",  "voici une phrqse 0 qvec 00 des mots ");
+	// 0 nombre
+	printf("'%0d'\n",      123);
+	printf("'%05d'\n",     123);
+	printf("'%01d'\n\n",     123);
+	//printf("'%010s'\n\n",  "123");
 
-
-	printf("%0d\n",    42);
-	printf("%0 5d\n",  42);
-	printf("%05d\n", 42);
-	printf("%.5d\n\n", 42);
+	// . nombre/str
+	printf("'%.d'\n",      123);
+	printf("'%.5d'\n",     123);
+	printf("'%.1d'\n",	   123);
+	printf("'%-.10s'\n",  "mots");
+	printf("'%.10s'\n\n",  "mots");
 
 	printf(   "%.d\n",    42);
 	//ft_printf("%.d\n",    42);
-	printf(   "%.50d\n",   42);
+	printf(   "%.5d\n",   42);
 	//ft_printf("%.5d\n",   42);
-	printf(   "%.0d\n",   42);
+	printf(   "%.1d\n",   42);
 	//ft_printf("% 0.5d\n",   42);
 
 

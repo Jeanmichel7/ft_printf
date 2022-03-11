@@ -6,7 +6,7 @@
 /*   By: jrasser <jrasser@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/21 15:22:00 by jrasser           #+#    #+#             */
-/*   Updated: 2022/03/10 21:20:41 by jrasser          ###   ########.fr       */
+/*   Updated: 2022/03/11 00:24:34 by jrasser          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,10 +70,9 @@ void			ft_lstiter(t_list *lst, void (*f)(void *));
 t_list			*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
 size_t			ft_strlen(const char *s);
 unsigned int	ft_putstr(char *str);
-//unsigned int	ft_itoa(int n);
 unsigned int	ft_uitoa(unsigned int n);
 unsigned int	ft_litoa(long int n);
-//int	ft_putnbr_base(int nbr, char *base);
 unsigned int	ft_putunbr_base(unsigned int nbr, char *base);
 unsigned int	ft_put_ptr(unsigned long int nbr, char *base);
+
 #endif

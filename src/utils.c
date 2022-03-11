@@ -1,26 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jrasser <jrasser@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/07 16:11:02 by jrasser           #+#    #+#             */
-/*   Updated: 2022/03/11 01:36:50 by jrasser          ###   ########.fr       */
+/*   Created: 2022/03/11 01:35:56 by jrasser           #+#    #+#             */
+/*   Updated: 2022/03/11 01:37:51 by jrasser          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
+#include "../include/ft_printf.h"
 
-# include <stdarg.h>
-# include "../libft_printf/libft.h"
-# include <unistd.h>
-# include <stdlib.h>
-# include <stdio.h>
+unsigned int	ft_printf_char(va_list ptr)
+{
+	int	c;
 
-int				ft_printf(const char *str, ...);
-unsigned int	ft_printf_char(va_list ptr);
-unsigned int	ft_put_char(char c);
+	c = va_arg(ptr, int);
+	write(1, &c, 1);
+	return (1);
+}
 
-#endif
+unsigned int	ft_put_char(char c)
+{
+	write(1, &c, 1);
+	return (1);
+}

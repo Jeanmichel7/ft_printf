@@ -2,3 +2,5 @@
 bin
 libftprint.a
 *.o
+.DS_Store
+
