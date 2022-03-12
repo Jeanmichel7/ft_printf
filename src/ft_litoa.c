@@ -6,7 +6,7 @@
 /*   By: jrasser <jrasser@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/25 21:00:45 by jrasser           #+#    #+#             */
-/*   Updated: 2022/03/12 01:49:42 by jrasser          ###   ########.fr       */
+/*   Updated: 2022/03/12 03:17:06 by jrasser          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,12 +36,11 @@ static void	sub(unsigned int sign, char *str, unsigned int *i, long int *n)
 	*n /= 10;
 }
 
-unsigned int	ft_litoa(long int n)
+char	*ft_litoa(long int n)
 {
 	char			*str;
 	unsigned int	i;
 	unsigned int	sign;
-	unsigned int	len;
 
 	sign = 0;
 	if (n < 0)
@@ -49,13 +48,11 @@ unsigned int	ft_litoa(long int n)
 	str = malloc(sizeof(char) * (ft_litoa_len(n) + 1 + sign));
 	str[ft_litoa_len(n) + sign] = '\0';
 	i = ft_litoa_len(n) + sign - 1;
-	len = i + 1;
 	if (n == 0)
 		str[i--] = '0';
 	while (n)
 		sub(sign, str, &i, &n);
 	if (sign)
 		str[i] = '-';
-	ft_putstr(str);
-	return (len);
+	return (str);
 }

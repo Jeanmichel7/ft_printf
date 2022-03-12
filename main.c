@@ -6,7 +6,7 @@
 /*   By: jrasser <jrasser@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/07 17:03:47 by jrasser           #+#    #+#             */
-/*   Updated: 2022/03/12 02:43:47 by jrasser          ###   ########.fr       */
+/*   Updated: 2022/03/12 03:11:44 by jrasser          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,19 +73,19 @@ int	main(void)
 	printf("%d\n", printf(   "real : %x\n", -1));
 	printf("%d\n", ft_printf("mine : %x\n", -1));
 
-	printf("\n**********  LONG INT  ********\n");
+	printf("\n**********  LD  ********\n");
 	printf("%d\n", printf(   "real : %ld\n", 9223372036854775807));
 	printf("%d\n", ft_printf("mine : %ld\n", 9223372036854775807));
 
-	printf("\n**********  LONG INT  ********\n");
+	printf("\n**********  LD  ********\n");
 	printf("%d\n", printf(   "real : %ld\n", -54775807));
 	printf("%d\n", ft_printf("mine : %ld\n", -54775807));
-/*
-	printf("\n**********  LONG OCTAL  ********\n");
+
+	printf("\n**********  LO  ********\n");
 	printf("%d\n", printf(   "real : %lo\n", 54775807));
 	printf("%d\n", ft_printf("mine : %lo\n", 54775807));
-*/
-	printf("\n**********  LONG INT  ********\n");
+
+	printf("\n**********  LU  ********\n");
 	printf("%d\n", printf(   "real : %lu\n", -54775807));
 	printf("%d\n", ft_printf("mine : %lu\n", -54775807));
 

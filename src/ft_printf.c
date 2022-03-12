@@ -6,7 +6,7 @@
 /*   By: jrasser <jrasser@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/07 16:16:54 by jrasser           #+#    #+#             */
-/*   Updated: 2022/03/12 03:07:40 by jrasser          ###   ########.fr       */
+/*   Updated: 2022/03/12 03:17:05 by jrasser          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,17 +73,15 @@ static unsigned int	ft_sub_flag(const char *str, int i, va_list ptr, int *z)
 	return (j + 1);
 }
 
-static int	ft_sub_printf_double(char c, va_list ptr, int *z)
+char	*ft_sub_printf_double(char c, va_list ptr)
 {
 	if (c == 'd')
-		*z += ft_litoa(va_arg(ptr, long int));
+		return (ft_litoa(va_arg(ptr, long int)));
 	else if (c == 'o')
-		*z += ft_strlen(ft_putunbr_base(va_arg(ptr, unsigned int), "01234567"));
+		return (ft_putunbr_base(va_arg(ptr, unsigned int), "01234567"));
 	else if (c == 'u')
-		*z += ft_strlen(ft_uitoa(va_arg(ptr, unsigned int)));
-	else
-		return (0);
-	return (1);
+		return (ft_uitoa(va_arg(ptr, unsigned int)));
+	return (NULL);
 }
 
 char	*ft_sub_printf(char c, va_list ptr)
@@ -126,7 +124,10 @@ int	ft_printf(const char *str, ...)
 			if (str[i] == '-' || str[i] == '0' || str[i] == '.')
 				i += ft_sub_flag(str, i, ptr, &z);
 			else if (str[i] == 'l')
-				i += ft_sub_printf_double(str[i + 1], ptr, &z);
+			{
+				z += ft_putstr(ft_sub_printf_double(str[i + 1], ptr));
+				i++;
+			}
 			else
 				z += ft_putstr(ft_sub_printf(str[i], ptr));
 		}
