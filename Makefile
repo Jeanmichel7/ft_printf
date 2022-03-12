@@ -6,12 +6,17 @@
 #    By: jrasser <jrasser@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/02/01 20:15:09 by jrasser           #+#    #+#              #
-#    Updated: 2022/03/11 01:47:31 by jrasser          ###   ########.fr        #
+#    Updated: 2022/03/12 01:48:31 by jrasser          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 SRCS		= src/ft_printf.c \
-			src/utils.c
+			src/utils.c \
+			src/ft_itoa_printf.c \
+			src/ft_put_ptr.c \
+			src/ft_putunbr_base.c \
+			src/ft_uitoa.c \
+			src/ft_litoa.c \
 
 OBJS		= ${SRCS:.c=.o}
 

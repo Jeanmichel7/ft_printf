@@ -1,0 +1,491 @@
+isalpha : 0
+ft_isalpha : 0
+
+isdigit : 1
+ft_isdigit : 1
+
+isalnum : 4
+ft_isalnum : 1
+
+isascii : 1
+ft_isascii : 1
+
+isprint : 4
+ft_isprint : 1
+
+
+**************** strlen *************
+15
+15
+0
+0
+1
+1
+
+
+**************** memset *************
+ppppour
+ppppour
+▒▒▒▒our
+▒▒▒▒our
+2222222
+2222222
+
+retour mine : 16843009 16843009 16843009 16843009 16843009 16843009 16843009 16843009 16843009 16843009
+retour real : 16843009 16843009 16843009 16843009 16843009 16843009 16843009 16843009 16843009 16843009
+
+**************** bzero *************
+bzero :       1 12 13 33 42
+retour real : 0 0 0 33 42
+retour mine : 0 0 0 33 42
+
+
+
+**************** memcpy *************
+memcpy :      1 12 13 33 42
+=> i3
+retour real : 1 12 13 0 0 00000057b21ff9f8
+retour mine : 1 12 13 0 115 00000057b21ff9f0
+
+
+=> i5
+retour real : 1 12 13 33 42 00000057b21ff9f8
+retour mine : 1 12 13 33 42 00000057b21ff9f0
+
+
+
+**************** mememove *************
+src  : Hello world 00000057b21ff9e8
+dest : world there!
+                   ▒A▒ 00000057b21ff9dc
+world there!
+            ▒A▒
+world there!
+            ▒A▒
+Hello there!
+            ▒A▒
+Hello there!
+            ▒A▒
+
+
+*************** mememove_int **********
+decalage : 6
+
+retour mine : 0 1 2 3 4 11 12 13 14 15 16 17
+retour real : 0 1 2 3 4 11 12 13 14 15 16 17
+
+
+**************** strlcpy *************
+res : 16, Message n
+res : 16, Message n
+res : 16,
+res : 16,
+res : 4, haaa
+res : 4, haaa
+res : 4, h
+res : 4, h
+
+
+**************** strlcat *************
+dest : 32, Debut du message ,f
+dest : 32, Debut du message ,f
+dest : 32, Debut du message ,fin du message
+dest : 32, Debut du message ,fin du message
+dest : 13, Debut du message
+dest : 13, Debut du message
+dest : 4, Debut du message
+dest : 4, Debut du message
+
+
+**************** toupper *************
+A
+A
+Z
+Z
+M
+M
+N
+N
+-
+-
+
+
+**************** toupper *************
+a
+a
+z
+z
+n
+n
+m
+m
+-
+-
+
+
+**************** strchr *************
+essage ici assez long
+essage ici assez long
+
+
+(null)
+(null)
+
+
+**************** strrchr *************
+ez long
+ez long
+
+
+(null)
+(null)
+
+
+**************** strncmp *************
+res : 0
+res : 0
+res : -1
+res : -1
+res : 0
+res : 0
+res : 1
+res : 1
+res : -1
+res : -1
+
+
+**************** memchr *************
+res : jour today
+res : jour today
+res :  today
+res :  today
+res : (null)
+res : (null)
+res : (null)
+res : (null)
+
+
+**************** memcmp *************
+res : 32
+res : 1
+res : 32
+res : 1
+res : 0
+res : 0
+res : 0
+res : 0
+res : -77
+res : -77
+res : 77
+res : 77
+res : -1
+res : -1
+res : 1
+res : 1
+
+
+**************** strnstr *************
+(null)
+(null)
+parce que j'ai aucune inspi
+parce que j'ai aucune inspi
+(null)
+(null)
+Un gros message ici parparce que j'ai aucune inspi
+Un gros message ici parparce que j'ai aucune inspi
+(null)
+(null)
+parce que j'ai aucune inspi
+parce que j'ai aucune inspi
+
+
+**************** atoi *************
+-10230
+-10230
+456
+456
+-1
+-1
+-2147483648
+-2147483648
+2147483647
+2147483647
+0
+0
+0
+0
+
+
+**************** calloc *************
+0
+0
+0000000000
+0000000000
+
+
+**************** strdup *************
+Bonjour a tous
+Bonjour a tous
+
+
+a
+a
+
+
+**************** substr *************
+mes
+mes
+message !
+message !
+Un message !
+Un message !
+Un me
+Un me
+Un message !
+Un message !
+(null)
+(null)
+(null)
+(null)
+
+
+**************** strjoin *************
+Un message ! Et un autre
+Un message ! Et un autre
+ Et un autre
+ Et un autre
+
+
+Un message !
+Un message !
+
+
+**************** strtrim *************
+Un message !
+Un message !
+abeUn mesabcsage !aec
+abeUn mesabcsage !aec
+abeUn message !abc
+abeUn message !abc
+
+
+**************** split *************
+un grand message ici et la et aussi là! fin (null)
+un grand message ici et la et aussi là! fin (null)
+a z e r (null)
+a z e r (null)
+Hello World (null)
+Hello World (null)
+H (null)
+H (null)
+(null)
+(null)
+
+
+**************** itoa *************
+123
+123
+100
+100
+1000
+1000
+1
+1
+123456789
+123456789
+0
+0
+2147483647
+2147483647
+
+-123
+-123
+-100
+-100
+-1000
+-1000
+-2
+-2
+0
+0
+-123456789
+-123456789
+-2147483648
+-2147483648
+
+
+**************** strmapi *************
+Un_message
+Un_message
+
+
+`ab_cde_fgh
+'ab_cde_fgh
+
+
+**************** striteri *************
+Un message original
+Un message original
+
+
+UN MESSAGE ORIGINAL!
+UN MESSAGE ORIGINAL!
+
+
+**************** put****_fd  *************
+FD : 3
+
+
+**************** test fct_fd ******************
+
+***********************************************
+***********************************************
+******                                   ******
+******    diff text.txt text_test.txt    ******
+******                                   ******
+***********************************************
+***********************************************
+
+
+*********************************************
+*******************  BONUS  *****************
+*********************************************
+
+
+**************** lstnew  *************
+block : 0, adress 000001ca0e311a60, next : 0000000000000000, content : blablabli
+
+
+
+**************** lstadd_front  *************
+block : 0, adress 000001ca0e311be0, next : 000001ca0e311a60, content : new_content
+block : 1, adress 000001ca0e311a60, next : 0000000000000000, content : blablabli
+
+block : 0, adress 000001ca0e311c40, next : 000001ca0e311be0, content : other_new_content
+block : 1, adress 000001ca0e311be0, next : 000001ca0e311a60, content : new_content
+block : 2, adress 000001ca0e311a60, next : 0000000000000000, content : blablabli
+
+
+
+**************** lstsize  *************
+liste size : 3
+
+
+**************** lstlast  *************
+block : 0, adress 000001ca0e311a60, next : 0000000000000000, content : blablabli
+
+
+
+**************** lstadd_back  *************
+block : 0, adress 000001ca0e311c40, next : 000001ca0e311be0, content : other_new_content
+block : 1, adress 000001ca0e311be0, next : 000001ca0e311a60, content : new_content
+block : 2, adress 000001ca0e311a60, next : 0000000000000000, content : blablabli
+
+block : 0, adress 000001ca0e311c40, next : 000001ca0e311be0, content : other_new_content
+block : 1, adress 000001ca0e311be0, next : 000001ca0e311a60, content : new_content
+block : 2, adress 000001ca0e311a60, next : 000001ca0e317f50, content : blablabli
+block : 3, adress 000001ca0e317f50, next : 0000000000000000, content : en dernier
+
+block : 0, adress 000001ca0e311c40, next : 000001ca0e311be0, content : other_new_content
+block : 1, adress 000001ca0e311be0, next : 000001ca0e311a60, content : new_content
+block : 2, adress 000001ca0e311a60, next : 000001ca0e317f50, content : blablabli
+block : 3, adress 000001ca0e317f50, next : 000001ca0e3183b0, content : en dernier
+block : 4, adress 000001ca0e3183b0, next : 0000000000000000, content : encore plus dernier
+
+
+
+**************** lstdelone *************
+dernier elem : contenu a supprimer
+elem 3: en dernier
+block : 0, adress 000001ca0e311c40, next : 000001ca0e311be0, content : other_new_content
+block : 1, adress 000001ca0e311be0, next : 000001ca0e311a60, content : new_content
+block : 2, adress 000001ca0e311a60, next : 000001ca0e317f50, content : blablabli
+block : 3, adress 000001ca0e317f50, next : 000001ca0e3183b0, content : en dernier
+block : 4, adress 000001ca0e3183b0, next : 000001ca0e318510, content : encore plus dernier
+block : 5, adress 000001ca0e318510, next : 0000000000000000, content : contenu a supprimer
+
+avant sup : 000001ca0e317f50, content : en dernier
+apres sup : 000001ca0e317f50, content : (null)
+
+block : 0, adress 000001ca0e311c40, next : 000001ca0e311be0, content : other_new_content
+block : 1, adress 000001ca0e311be0, next : 000001ca0e311a60, content : new_content
+block : 2, adress 000001ca0e311a60, next : 000001ca0e317f50, content : blablabli
+block : 3, adress 000001ca0e317f50, next : 000001ca0e3183b0, content : (null)
+block : 4, adress 000001ca0e3183b0, next : 000001ca0e318510, content : encore plus dernier
+block : 5, adress 000001ca0e318510, next : 0000000000000000, content : contenu a supprimer
+
+avant sup : 000001ca0e318510, content : contenu a supprimer
+apres sup : 000001ca0e318510, content : (null)
+
+block : 0, adress 000001ca0e311c40, next : 000001ca0e311be0, content : other_new_content
+block : 1, adress 000001ca0e311be0, next : 000001ca0e311a60, content : new_content
+block : 2, adress 000001ca0e311a60, next : 000001ca0e317f50, content : blablabli
+block : 3, adress 000001ca0e317f50, next : 000001ca0e3183b0, content : (null)
+block : 4, adress 000001ca0e3183b0, next : 000001ca0e318510, content : encore plus dernier
+block : 5, adress 000001ca0e318510, next : 0000000000000000, content : (null)
+
+block : 0, adress 000001ca0e311c40, next : 000001ca0e311be0, content : other_new_content
+block : 1, adress 000001ca0e311be0, next : 000001ca0e311a60, content : new_content
+block : 2, adress 000001ca0e311a60, next : 000001ca0e317f50, content : blablabli
+block : 3, adress 000001ca0e317f50, next : 000001ca0e3183b0, content : (null)
+block : 4, adress 000001ca0e3183b0, next : 000001ca0e318510, content : encore plus dernier
+block : 5, adress 000001ca0e318510, next : 000001ca0e318470, content : (null)
+block : 6, adress 000001ca0e318470, next : 000001ca0e318550, content : ajout de text
+block : 7, adress 000001ca0e318550, next : 000001ca0e3180d0, content : parce que c'est vide
+block : 8, adress 000001ca0e3180d0, next : 0000000000000000, content : et mtn plus rempli !
+
+
+
+**************** lstclear *************
+block : 0, adress 000001ca0e311c40, next : 000001ca0e311be0, content : other_new_content
+block : 1, adress 000001ca0e311be0, next : 000001ca0e311a60, content : new_content
+block : 2, adress 000001ca0e311a60, next : 000001ca0e317f50, content : blablabli
+block : 3, adress 000001ca0e317f50, next : 000001ca0e3183b0, content : (null)
+block : 4, adress 000001ca0e3183b0, next : 000001ca0e318510, content : encore plus dernier
+block : 5, adress 000001ca0e318510, next : 000001ca0e318470, content : (null)
+block : 6, adress 000001ca0e318470, next : 000001ca0e318550, content : ajout de text
+block : 7, adress 000001ca0e318550, next : 000001ca0e3180d0, content : parce que c'est vide
+block : 8, adress 000001ca0e3180d0, next : 0000000000000000, content : et mtn plus rempli !
+
+elem de depart : ajout de text
+avant sup : 000001ca0e318470, content : ajout de text
+apres sup : 000001ca0e318470, content : (null)
+
+avant sup : 000001ca0e318550, content : parce que c'est vide
+apres sup : 000001ca0e318550, content : (null)
+
+avant sup : 000001ca0e3180d0, content : et mtn plus rempli !
+apres sup : 000001ca0e3180d0, content : (null)
+
+block : 0, adress 000001ca0e311c40, next : 000001ca0e311be0, content : other_new_content
+block : 1, adress 000001ca0e311be0, next : 000001ca0e311a60, content : new_content
+block : 2, adress 000001ca0e311a60, next : 000001ca0e317f50, content : blablabli
+block : 3, adress 000001ca0e317f50, next : 000001ca0e3183b0, content : (null)
+block : 4, adress 000001ca0e3183b0, next : 000001ca0e318510, content : encore plus dernier
+block : 5, adress 000001ca0e318510, next : 000001ca0e318470, content : (null)
+block : 6, adress 000001ca0e318470, next : 0000000000000000, content : (null)
+
+
+
+**************** lstiter *************
+block : 0, adress 000001ca0e311c40, next : 000001ca0e311be0, content : other_new_content
+block : 1, adress 000001ca0e311be0, next : 000001ca0e311a60, content : new_content
+block : 2, adress 000001ca0e311a60, next : 000001ca0e317f50, content : blablabli
+block : 3, adress 000001ca0e317f50, next : 000001ca0e3183b0, content : (null)
+block : 4, adress 000001ca0e3183b0, next : 000001ca0e318510, content : encore plus dernier
+block : 5, adress 000001ca0e318510, next : 000001ca0e318470, content : (null)
+block : 6, adress 000001ca0e318470, next : 0000000000000000, content : (null)
+
+elem 4 de départ :
+000001ca0e3183b0, encore plus dernier
+000001ca0e3183b0, encore plus dernier
+avant modif : 000001ca0e3183b0, content : blablablou
+avant modif : 000001ca0e318510, content : Hello world
+avant modif : 000001ca0e318470, content : Hello world
+block : 0, adress 000001ca0e311c40, next : 000001ca0e311be0, content : other_new_content
+block : 1, adress 000001ca0e311be0, next : 000001ca0e311a60, content : new_content
+block : 2, adress 000001ca0e311a60, next : 000001ca0e317f50, content : blablabli
+block : 3, adress 000001ca0e317f50, next : 000001ca0e3183b0, content : (null)
+block : 4, adress 000001ca0e3183b0, next : 000001ca0e318510, content : blablablou
+block : 5, adress 000001ca0e318510, next : 000001ca0e318470, content : Hello world
+block : 6, adress 000001ca0e318470, next : 0000000000000000, content : Hello world

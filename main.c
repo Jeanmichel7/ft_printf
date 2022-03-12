@@ -6,7 +6,7 @@
 /*   By: jrasser <jrasser@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/07 17:03:47 by jrasser           #+#    #+#             */
-/*   Updated: 2022/03/11 03:49:43 by jrasser          ###   ########.fr       */
+/*   Updated: 2022/03/12 02:43:47 by jrasser          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ int	main(void)
 
 	ptr = "test";
 
+
 	printf("\n**********  STRING  ********\n");
 	printf("%d\n", printf(   "real : %s apres\n", "coucou"));
 	printf("%d\n", ft_printf("mine : %s apres\n", "coucou"));
@@ -47,6 +48,7 @@ int	main(void)
 	printf("%d\n", printf(	  "real : %i\n", 123.5));
 	printf("%d\n", ft_printf("mine : %i\n", 123.5));
 
+
 	printf("\n**********  UOCTAL  ********\n");
 	printf("%d\n", printf(   "real : %o\n", 123));
 	printf("%d\n", ft_printf("mine : %o\n", 123));
@@ -56,8 +58,8 @@ int	main(void)
 	printf("%d\n", ft_printf("mine : %u\n", 40000000000));
 
 	printf("\n**********  UDECIMAL  ********\n");
-	printf("%d\n", printf(   "real : %u\n", -40));
-	printf("%d\n", ft_printf("mine : %u\n", -40));
+	printf("%d\n", printf(   "real : %u\n", 123456789123));
+	printf("%d\n", ft_printf("mine : %u\n", 123456789123));
 
 	printf("\n**********  UHexa  ********\n");
 	printf("%d\n", printf(   "real : %x\n", 1456890));
@@ -78,11 +80,11 @@ int	main(void)
 	printf("\n**********  LONG INT  ********\n");
 	printf("%d\n", printf(   "real : %ld\n", -54775807));
 	printf("%d\n", ft_printf("mine : %ld\n", -54775807));
-
+/*
 	printf("\n**********  LONG OCTAL  ********\n");
 	printf("%d\n", printf(   "real : %lo\n", 54775807));
 	printf("%d\n", ft_printf("mine : %lo\n", 54775807));
-
+*/
 	printf("\n**********  LONG INT  ********\n");
 	printf("%d\n", printf(   "real : %lu\n", -54775807));
 	printf("%d\n", ft_printf("mine : %lu\n", -54775807));
@@ -113,27 +115,33 @@ int	main(void)
 	printf("\n\n**********  BONUS  ********\n");
 
 	// - . accumulable (nb / str)
-	printf("\n**********  %%-XXduxs  ********\n");
+	printf("\n**********  %%-   XXduxs  ********\n");
 
-	printf("%d\n", printf(   "'%-50u'",    42));
-	printf("%d\n\n", ft_printf("'%-50u'",    42));
+	printf("%d\n", printf(   "'%-50d'",    42));
+	printf("%d\n\n", ft_printf("'%-50d'",    42));
 	printf("%d\n", printf(   "'%-0d'",    42));
 	printf("%d\n\n", ft_printf("'%-0d'",    42));
 	printf("%d\n", printf(   "'%-d'",    42));
 	printf("%d\n\n", ft_printf("'%-d'",    42));
 	printf("%d\n", printf(   "'%-5d'",    42));
 	printf("%d\n\n", ft_printf("'%-5d'",    42));
-	printf("%d\n", printf(   "'%-5s'",    "42"));
-	printf("%d\n\n", ft_printf("'%-5s'",    "42"));
+	printf("%d\n", printf(   "'%-5s'",    "402"));
+	printf("%d\n\n", ft_printf("'%-5s'",    "402"));
 	printf("%d\n", printf(   "'%-.5d'",    42));
 	printf("%d\n\n", ft_printf("'%-.5d'",    42));
 
 	// 0 nombre
-	printf("'%0d'\n",      123);
-	printf("'%05d'\n",     123);
-	printf("'%01d'\n\n",     123);
-	//printf("'%010s'\n\n",  "123");
+	printf("\n**********  %%0  XXduxs  ********\n\n");
 
+	printf("%d\n", printf(   "'%05d'\n",      123));
+	printf("%d\n\n", ft_printf("'%05d'\n",      123));
+
+	printf("%d\n", printf(   "'%02d'\n",   123));
+	printf("%d\n\n", ft_printf("'%02d'\n",   123));
+
+	printf("'%01d'\n",     123);
+	//printf("'%010s'\n\n",  "123");
+/*
 	// . nombre/str
 	printf("'%.d'\n",      123);
 	printf("'%.5d'\n",     123);
@@ -147,7 +155,7 @@ int	main(void)
 	//ft_printf("%.5d\n",   42);
 	printf(   "%.1d\n",   42);
 	//ft_printf("% 0.5d\n",   42);
-
+*/
 
 	return (0);
 }

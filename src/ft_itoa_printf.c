@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_litoa.c                                         :+:      :+:    :+:   */
+/*   ft_itoa_printf.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jrasser <jrasser@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/25 21:00:45 by jrasser           #+#    #+#             */
-/*   Updated: 2022/03/10 21:13:10 by jrasser          ###   ########.fr       */
+/*   Updated: 2022/03/12 02:00:55 by jrasser          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../include/ft_printf.h"
 
-static unsigned int	ft_litoa_len(long int n)
+static unsigned int	ft_itoa_len(int n)
 {
 	unsigned int	len;
 
@@ -27,7 +27,7 @@ static unsigned int	ft_litoa_len(long int n)
 	return (len);
 }
 
-static void	sub(unsigned int sign, char *str, unsigned int *i, long int *n)
+static void	ft_sub_itoa(unsigned int sign, char *str, unsigned int *i, int *n)
 {
 	if (sign)
 		*(str + (*i)--) = ((*n % 10) * -1) + '0';
@@ -36,26 +36,25 @@ static void	sub(unsigned int sign, char *str, unsigned int *i, long int *n)
 	*n /= 10;
 }
 
-unsigned int	ft_litoa(long int n)
+char	*ft_itoa_printf(int n)
 {
 	char			*str;
 	unsigned int	i;
 	unsigned int	sign;
-	unsigned int	len;
+	//unsigned int	len;
 
 	sign = 0;
 	if (n < 0)
 		sign = 1;
-	str = malloc(sizeof(char) * (ft_litoa_len(n) + 1 + sign));
-	str[ft_litoa_len(n) + sign] = '\0';
-	i = ft_litoa_len(n) + sign - 1;
-	len = i + 1;
+	str = malloc(sizeof(char) * (ft_itoa_len(n) + 1 + sign));
+	str[ft_itoa_len(n) + sign] = '\0';
+	i = ft_itoa_len(n) + sign - 1;
+	//len = i + 1;
 	if (n == 0)
 		str[i--] = '0';
 	while (n)
-		sub(sign, str, &i, &n);
+		ft_sub_itoa(sign, str, &i, &n);
 	if (sign)
 		str[i] = '-';
-	ft_putstr(str);
-	return (len);
+	return (str);
 }

@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_itoa.c                                          :+:      :+:    :+:   */
+/*   ft_uitoa.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jrasser <jrasser@42.fr>                    +#+  +:+       +#+        */
+/*   By: jrasser <jrasser@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/25 21:00:45 by jrasser           #+#    #+#             */
-/*   Updated: 2022/03/04 18:11:02 by jrasser          ###   ########.fr       */
+/*   Updated: 2022/03/12 02:23:06 by jrasser          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../include/ft_printf.h"
 
-unsigned int	ft_itoa_len(int n)
+static unsigned int	ft_uitoa_len(unsigned int n)
 {
 	unsigned int	len;
 
@@ -27,31 +27,22 @@ unsigned int	ft_itoa_len(int n)
 	return (len);
 }
 
-char	*ft_itoa(int n)
+char	*ft_uitoa(unsigned int n)
 {
-	char			*str;
-	unsigned int	i;
-	unsigned int	sign;
+	char				*str;
+	unsigned long int	i;
+	//unsigned int		len;
 
-	sign = 0;
-	if (n < 0)
-		sign = 1;
-	str = malloc(sizeof(char) * (ft_itoa_len(n) + 1 + sign));
-	if (str == NULL)
-		return (NULL);
-	str[ft_itoa_len(n) + sign] = '\0';
-	i = ft_itoa_len(n) + sign - 1;
+	str = malloc(sizeof(char) * (ft_uitoa_len(n) + 1));
+	str[ft_uitoa_len(n)] = '\0';
+	i = ft_uitoa_len(n) - 1;
+	//len = i - 1;
 	if (n == 0)
 		str[i--] = '0';
 	while (n)
 	{
-		if (sign)
-			str[i--] = ((n % 10) * -1) + '0';
-		else
-			str[i--] = (n % 10) + '0';
+		str[i--] = (n % 10) + '0';
 		n /= 10;
 	}
-	if (sign)
-		str[i] = '-';
 	return (str);
 }

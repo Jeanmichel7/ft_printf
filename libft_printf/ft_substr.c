@@ -3,25 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_substr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jrasser <jrasser@student.42.fr>            +#+  +:+       +#+        */
+/*   By: jrasser <jrasser@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/25 20:59:59 by jrasser           #+#    #+#             */
-/*   Updated: 2022/03/05 15:04:24 by jrasser          ###   ########.fr       */
+/*   Updated: 2022/03/04 18:19:00 by jrasser          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-
-static size_t	max(size_t len, char const *s)
-{
-	size_t	max;
-
-	if (len >= ft_strlen(s))
-		max = ft_strlen(s);
-	else
-		max = len;
-	return (max);
-}
 
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
@@ -30,16 +19,12 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 
 	if (!s)
 		return (NULL);
-	if (start >= ft_strlen(s))
-	{
-		str = malloc(sizeof(char) * 1);
-		str[0] = '\0';
-		return (str);
-	}
-	else
-		str = malloc(sizeof(char) * (max(len, s) + 1));
+	str = malloc(sizeof(char) * (len + 1));
 	if (str == NULL)
 		return (NULL);
+	str[0] = '\0';
+	if (start >= ft_strlen(s) + 1)
+		return (str);
 	i = start;
 	while (len && s[i])
 	{

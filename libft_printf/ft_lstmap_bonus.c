@@ -1,41 +1,61 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstmap.c                                        :+:      :+:    :+:   */
+/*   ft_lstmap_bonus.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jrasser <jrasser@student.42.fr>            +#+  +:+       +#+        */
+/*   By: jrasser <jrasser@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/27 03:31:39 by jrasser           #+#    #+#             */
-/*   Updated: 2022/03/05 22:27:14 by jrasser          ###   ########.fr       */
+/*   Updated: 2022/02/27 03:31:39 by jrasser          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-/*
 #include "libft.h"
+#include <stdio.h>
 
-t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
+//créer nouvelle liste
+static t_list	*ft_lstnew_map(void *(*f)(void *))
+{
+	t_list	*tmp;
+
+	tmp = malloc(sizeof(t_list));
+	if (tmp == NULL)
+		return (NULL);
+	f(tmp);
+	return (tmp);
+}
+
+//ajouter contenu a la liste
+static void	ft_lstadd_back_map(t_list **lst, t_list *new)
+{
+	t_list *tmp;
+
+	tmp = &**lst;
+	while ((*lst)->next)
+		*lst = (*lst)->next;
+	(*lst)->next = new;
+	*lst = tmp;
+}
+
+t_list *ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 {
 	t_list  *tmp;
 	t_list  *new_list;
-	t_list	*tmp_next;
 
-	new_list = malloc(sizeof(t_list));
-	if (new_list == NULL)
-		return (NULL);
-
+	new_list = ft_lstnew_map(f);
+	lst = lst->next;
 	while (lst)
 	{
-		tmp_next = lst->next;
+		del(lst->content);
+		//free(lst->content);
+
 		tmp = malloc(sizeof(t_list));
 		if (tmp == NULL)
 			return (NULL);
-		tmp->content = f(lst->content);
-		tmp->next = lst->next;
-		new_list = tmp;
-		del(lst->content);
-		free(&lst);
-		lst = tmp_next;
+		f(tmp);
+		ft_lstadd_back_map(&new_list, tmp);
+
+		lst = lst->next;
 	}
 	return (new_list);
 }
-*/
