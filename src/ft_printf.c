@@ -6,7 +6,7 @@
 /*   By: jrasser <jrasser@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/07 16:16:54 by jrasser           #+#    #+#             */
-/*   Updated: 2022/03/12 18:47:05 by jrasser          ###   ########.fr       */
+/*   Updated: 2022/03/12 19:57:29 by jrasser          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,41 +47,26 @@ static unsigned int ft_sub_flag(const char *str, int i, va_list ptr, int *z)
 	if (str[i] == '-')
 	{
 		i++;
-		str_nbr = ft_arg_multi(str, i);
-		i += ft_strlen(str_nbr);
-		str_arg = ft_sub_printf(str[i], ptr);
-		ft_putstr(str_arg);
-		*z += ft_strlen(str_arg);
-		nbr = ft_atoi(str_nbr);
-		count_inital = 0;
-		if (ft_strlen(str_arg) < nbr)
-			count_inital = ft_atoi(str_nbr) - ft_strlen(str_arg) + 1;
-		//printf("\n count : %d, arg : '%s' len : %ld, nb : '%s' len : %d, a rajouter %d\n", *z, str_arg, ft_strlen(str_arg), str_nbr, ft_atoi(str_nbr), diff);
-		while ( count_inital && --count_inital)
-			*z += ft_put_char(' ');
-	}
-	else if (str[i] == '0')
-	{
-		i++;
-		str_nbr = ft_arg_multi(str, i);
-		i += ft_strlen(str_nbr);
-		str_arg = ft_sub_printf(str[i], ptr);
-		count_inital = ft_strlen(str_arg);
-		nbr = ft_atoi(str_nbr);
-		*z += count_inital;
-		if (str[i] == 's' || str[i] == 'c')
-			c = ' ';
-		else
-			c = '0';
-		if (str[i] == 'p')
-			count_inital += 2;
-		if (str[i] == 'p')
+		if (str[i] != '.')
+		{
+			str_nbr =		ft_arg_multi(str, i);
+			i +=			ft_strlen(str_nbr);
+			str_arg =		ft_sub_printf(str[i], ptr);
+			*z +=			ft_strlen(str_arg);
+			nbr =			ft_atoi(str_nbr);
+			count_inital = 	0;
+			
+			ft_putstr(str_arg);
+			if (ft_strlen(str_arg) < nbr)
+				count_inital = ft_atoi(str_nbr) - ft_strlen(str_arg) + 1;
+			//printf("\n count : %d, arg : '%s' len : %ld, nb : '%s' len : %d, a rajouter %d\n", *z, str_arg, ft_strlen(str_arg), str_nbr, ft_atoi(str_nbr), diff);
+			while ( count_inital && --count_inital)
+				*z += ft_put_char(' ');
+			if (str[i] == 'p')
 			*z += 2;
-		while (count_inital++ < nbr)
-			*z += ft_put_char(c);
-		ft_putstr(str_arg);
+		}
 	}
-	else if (str[i] == '.')
+	if (str[i] == '.')
 	{
 		i++;
 		str_nbr = 		ft_arg_multi(str, i);
@@ -94,15 +79,40 @@ static unsigned int ft_sub_flag(const char *str, int i, va_list ptr, int *z)
 		if (str[i] != 's' && str[i] != 'c')
 			while (count_inital++ < nbr)
 				*z += ft_put_char('0');
+		count_inital = 0;
 		if (ft_strlen(str_arg) > nbr && str[i] == 's')
 		{
-			count_inital = -1;
-			while (++count_inital < nbr)
-				ft_put_char(str_arg[count_inital]);
+			while (count_inital < nbr)
+				ft_put_char(str_arg[count_inital++]);
 			*z -= ft_strlen(str_arg) - count_inital;
 		}
 		else
 			ft_putstr(str_arg);
+		if (str[i] == 'p')
+			*z += 2;
+		if (str[i - ft_strlen(str_nbr) - 2] == '-')
+			return (ft_strlen(str_nbr) + 2);
+	}
+	else if (str[i] == '0' && str[i + 1] != '-')
+	{
+		i++;
+		str_nbr =		ft_arg_multi(str, i);
+		i +=			ft_strlen(str_nbr);
+		str_arg =		ft_sub_printf(str[i], ptr);
+		count_inital =	ft_strlen(str_arg);
+		nbr =			ft_atoi(str_nbr);
+		*z +=			count_inital;
+		
+		c = '0';
+		if (str[i] == 's' || str[i] == 'c')
+			c = ' ';
+		if (str[i] == 'p')
+			count_inital += 2;
+		if (str[i] == 'p')
+			*z += 2;
+		while (count_inital++ < nbr)
+			*z += ft_put_char(c);
+		ft_putstr(str_arg);
 	}
 	return (ft_strlen(str_nbr) + 1);
 }
