@@ -6,7 +6,7 @@
 /*   By: jrasser <jrasser@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/25 21:00:45 by jrasser           #+#    #+#             */
-/*   Updated: 2022/03/12 02:23:06 by jrasser          ###   ########.fr       */
+/*   Updated: 2022/03/13 01:43:30 by jrasser          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,12 +31,10 @@ char	*ft_uitoa(unsigned int n)
 {
 	char				*str;
 	unsigned long int	i;
-	//unsigned int		len;
 
 	str = malloc(sizeof(char) * (ft_uitoa_len(n) + 1));
 	str[ft_uitoa_len(n)] = '\0';
 	i = ft_uitoa_len(n) - 1;
-	//len = i - 1;
 	if (n == 0)
 		str[i--] = '0';
 	while (n)

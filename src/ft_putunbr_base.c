@@ -6,7 +6,7 @@
 /*   By: jrasser <jrasser@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/08 01:18:04 by jrasser           #+#    #+#             */
-/*   Updated: 2022/03/12 02:11:44 by jrasser          ###   ########.fr       */
+/*   Updated: 2022/03/13 01:43:02 by jrasser          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ static void	ft_putuchar(char c, unsigned int *len)
 static unsigned int	ft_scale(long nb, int len)
 {
 	unsigned int	res;
-	
+
 	res = 1;
 	while ((nb / len) > 0)
 	{
@@ -37,11 +37,9 @@ char	*ft_putunbr_base(unsigned int nbr, char *base)
 {
 	int				len_base;
 	long			scale;
-	//unsigned int	len;
 	char			*str;
 	unsigned int	i;
 
-	//len = 0;
 	i = 0;
 	len_base = ft_strlen(base);
 	scale = ft_scale(nbr, ft_strlen(base));

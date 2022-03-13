@@ -6,7 +6,7 @@
 /*   By: jrasser <jrasser@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/07 16:11:02 by jrasser           #+#    #+#             */
-/*   Updated: 2022/03/12 05:13:40 by jrasser          ###   ########.fr       */
+/*   Updated: 2022/03/13 03:46:59 by jrasser          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,12 +22,26 @@
 int				ft_printf(const char *str, ...);
 unsigned int	ft_printf_char(va_list ptr);
 unsigned int	ft_put_char(char c);
-char        	*ft_put_ptr(unsigned long int nbr, char *base);
-char        	*ft_putunbr_base(unsigned int nbr, char *base);
-char        	*ft_uitoa(unsigned int n);
-char	        *ft_itoa_printf(int n);
+char			*ft_put_ptr(unsigned long int nbr, char *base);
+char			*ft_putunbr_base(unsigned int nbr, char *base);
+char			*ft_uitoa(unsigned int n);
+char			*ft_itoa_printf(int n);
 unsigned int	ft_putstr(char *str);
-char        	*ft_litoa(long int n);
-char	        *ctos(char c);
+char			*ft_litoa(long int n);
+char			*ctos(char c);
+char			*ft_sub_char(char c, va_list ptr);
+
+/* BONUS */
+
+char			*ft_arg_multi(const char *str, int i);
+int				ft_dash_flag(const char *str, int i, va_list ptr, int *z);
+int				ft_dot_flag(const char *str, int i, va_list ptr, int *z);
+int				ft_zero_flag(const char *str, int i, va_list ptr, int *z);
+
+/* BONUS2 */
+
+int				ft_space_flag(const char *str, int i, va_list ptr, int *z);
+int				ft_diese_flag(const char *str, int i, va_list ptr, int *z);
+int				ft_plus_flag(const char *str, int i, va_list ptr, int *z);
 
 #endif

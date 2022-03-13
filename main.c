@@ -6,7 +6,7 @@
 /*   By: jrasser <jrasser@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/07 17:03:47 by jrasser           #+#    #+#             */
-/*   Updated: 2022/03/12 20:19:25 by jrasser          ###   ########.fr       */
+/*   Updated: 2022/03/13 03:44:01 by jrasser          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -271,5 +271,77 @@ int	main(void)
 
 
 
+
+
+
+	printf("\n***************  BONUS 2 ' ' ***************\n\n");
+
+	printf("%d\n", printf(     "'% d'\n",    123));
+	printf("%d\n\n", ft_printf("'% d'\n",    123));
+
+	printf("%d\n", printf(     "'% 2d '\n",    123));
+	printf("%d\n\n", ft_printf("'% 2d '\n",    123));
+
+	printf("%d\n", printf(     "'% 6d '\n",    123));
+	printf("%d\n\n", ft_printf("'% 6d '\n",    123));
+
+	printf("%d\n", printf(     "'%s '\n",    "1234"));
+	printf("%d\n\n", ft_printf("'%s '\n",    "1234"));
+
+	//printf("%d\n", printf(     "'%- 10d'\n",    11234)); a faire ?
+	//printf("%d\n\n", ft_printf("'%- 10d'\n",    11234));
+
+
+
+	printf("\n***************  BONUS 2 # ***************\n\n");
+
+	//printf("%d\n", printf(          "'%#30d'\n",    123456789));
+	//printf("%d\n\n", ft_printf(     "'%#30d'\n",    123456789));
+
+	//printf("%d\n", printf(          "'%#d'\n",    123456789));
+	//printf("%d\n\n", ft_printf(     "'%#d'\n",    123456789));
+
+
+
+	printf("%d\n", printf(          "'%#o'\n",    123456789));
+	printf("%d\n\n", ft_printf(     "'%#o'\n",    123456789));
+
+	printf("%d\n", printf(          "'%#20o'\n",    123456789));
+	printf("%d\n\n", ft_printf(     "'%#20o'\n",    123456789));
+
+	printf("%d\n", printf(          "'%#x'\n",    123456789));
+	printf("%d\n\n", ft_printf(     "'%#x'\n",    123456789));
+
+	printf("%d\n", printf(          "'%#20x'\n",    123456789));
+	printf("%d\n\n", ft_printf(     "'%#20x'\n",    123456789));
+
+	printf("%d\n", printf(          "'%#2x'\n",    123456789));
+	printf("%d\n\n", ft_printf(     "'%#2x'\n",    123456789));
+
+	printf("%d\n", printf(          "'%#X'\n",    123456789));
+	printf("%d\n\n", ft_printf(     "'%#X'\n",    123456789));
+
+
+
+	printf("\n***************  BONUS 2 + ***************\n\n");
+
+	printf("%d\n", printf(          "'%+d'\n",    123456789));
+	printf("%d\n\n", ft_printf(     "'%+d'\n",    123456789));
+
+	printf("%d\n", printf(          "'%+20d'\n",  -123456789));
+	printf("%d\n\n", ft_printf(     "'%+20d'\n",  -123456789));
+
+	printf("%d\n", printf(          "'%+20d'\n",  123456789));
+	printf("%d\n\n", ft_printf(     "'%+20d'\n",  123456789));
+
+	printf("%d\n", printf(          "'%+2d'\n",    123456789));
+	printf("%d\n\n", ft_printf(     "'%+2d'\n",    123456789));
+
+	printf("%d\n", printf(          "'%+20d'\n",    0));
+	printf("%d\n\n", ft_printf(     "'%+20d'\n",    0));
+
+
+
 	return (0);
 }
+
