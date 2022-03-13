@@ -6,7 +6,7 @@
 /*   By: jrasser <jrasser@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/13 02:03:52 by jrasser           #+#    #+#             */
-/*   Updated: 2022/03/13 03:47:24 by jrasser          ###   ########.fr       */
+/*   Updated: 2022/03/13 04:36:41 by jrasser          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,28 @@ int	ft_space_flag(const char *str, int i, va_list ptr, int *z)
 	ft_putstr(str_arg);
 	return (ft_strlen(str_nbr) + 1);
 }
-// '%#o'
+
+void	ft_sub_diese_flag(char c, size_t count_inital, char *str_nbr, int *z)
+{
+	if (c == 'o')
+	{
+		while (count_inital++ + 1 < (size_t)ft_atoi(str_nbr))
+			*z += ft_put_char(' ');
+		*z += ft_put_char('0');
+	}
+	else if (c == 'x' || c == 'X')
+	{
+		while (count_inital++ + 2 < (size_t)ft_atoi(str_nbr))
+			*z += ft_put_char(' ');
+		if (c == 'x')
+			*z += ft_putstr("0x");
+		else if (c == 'X')
+			*z += ft_putstr("0X");
+	}
+	else
+		while (count_inital++ < (size_t)ft_atoi(str_nbr))
+			*z += ft_put_char(' ');
+}
 
 int	ft_diese_flag(const char *str, int i, va_list ptr, int *z)
 {
@@ -55,24 +76,7 @@ int	ft_diese_flag(const char *str, int i, va_list ptr, int *z)
 	str_arg = ft_sub_char(str[i], ptr);
 	count_inital = ft_strlen(str_arg);
 	*z += count_inital;
-	if (str[i] == 'o')
-	{
-		while (count_inital++ + 1 < (size_t)ft_atoi(str_nbr))
-			*z += ft_put_char(' ');
-		*z += ft_put_char('0');
-	}
-	else if (str[i] == 'x' || str[i] == 'X')
-	{
-		while (count_inital++ + 2 < (size_t)ft_atoi(str_nbr))
-			*z += ft_put_char(' ');
-		if (str[i] == 'x')
-			*z += ft_putstr("0x");
-		else if (str[i] == 'X')
-			*z += ft_putstr("0X");
-	}
-	else
-		while (count_inital++ < (size_t)ft_atoi(str_nbr))
-			*z += ft_put_char(' ');
+	ft_sub_diese_flag(str[i], count_inital, str_nbr, z);
 	ft_putstr(str_arg);
 	return (ft_strlen(str_nbr) + 1);
 }
@@ -103,7 +107,5 @@ int	ft_plus_flag(const char *str, int i, va_list ptr, int *z)
 		ft_putstr(str_arg);
 	if (str[i] == 'p')
 		*z += 2;
-	if (str[i - ft_strlen(str_nbr) - 2] == '-')
-		return (ft_strlen(str_nbr) + 2);
 	return (ft_strlen(str_nbr) + 1);
 }

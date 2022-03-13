@@ -6,7 +6,7 @@
 /*   By: jrasser <jrasser@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/07 17:03:47 by jrasser           #+#    #+#             */
-/*   Updated: 2022/03/13 03:44:01 by jrasser          ###   ########.fr       */
+/*   Updated: 2022/03/13 04:25:07 by jrasser          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,45 +35,45 @@ int	main(void)
 
 
 	printf("\n**********  STRING  ********\n");
-	printf("%d\n", printf(   "real : %s apres\n", "coucou"));
-	printf("%d\n", ft_printf("mine : %s apres\n", "coucou"));
+	printf("%d\n", printf(   "real : %s apres ", "coucou"));
+	printf("%d\n", ft_printf("mine : %s apres ", "coucou"));
 
 	printf("\n**********  CHAR  ********\n");
-	printf("%d\n", printf(   "real : %c\n", 't'));
-	printf("%d\n", ft_printf("mine : %c\n", 't'));
+	printf("%d\n", printf(   "real : %c ", 't'));
+	printf("%d\n", ft_printf("mine : %c ", 't'));
 
 	printf("\n**********  INT  ********\n");
-	printf("%d\n", printf(   "real : %d\n", 12456835));
-	printf("%d\n", ft_printf("mine : %d\n", 12456835));
+	printf("%d\n", printf(   "real : %d ", 12456835));
+	printf("%d\n", ft_printf("mine : %d ", 12456835));
 
 	printf("\n**********  ENTIER  ********\n");
-	printf("%d\n", printf(	 "real : %i\n", 123));
-	printf("%d\n", ft_printf("mine : %i\n", 123));
+	printf("%d\n", printf(	 "real : %i ", 123));
+	printf("%d\n", ft_printf("mine : %i ", 123));
 
 
 	printf("\n**********  UOCTAL  ********\n");
-	printf("%d\n", printf(   "real : %o\n", 123));
-	printf("%d\n", ft_printf("mine : %o\n", 123));
+	printf("%d\n", printf(   "real : %o ", 123));
+	printf("%d\n", ft_printf("mine : %o ", 123));
 
 	printf("\n**********  UDECIMAL  ********\n");
-	printf("%d\n", printf(   "real : %u\n", 400000000));
-	printf("%d\n", ft_printf("mine : %u\n", 400000000));
+	printf("%d\n", printf(   "real : %u ", 400000000));
+	printf("%d\n", ft_printf("mine : %u ", 400000000));
 
 	printf("\n**********  UDECIMAL  ********\n");
-	printf("%d\n", printf(   "real : %u\n", 1234567123));
-	printf("%d\n", ft_printf("mine : %u\n", 1234567123));
+	printf("%d\n", printf(   "real : %u ", 1234567123));
+	printf("%d\n", ft_printf("mine : %u ", 1234567123));
 
 	printf("\n**********  UHexa  ********\n");
-	printf("%d\n", printf(   "real : %x\n", 1456890));
-	printf("%d\n", ft_printf("mine : %x\n", 1456890));
+	printf("%d\n", printf(   "real : %x ", 1456890));
+	printf("%d\n", ft_printf("mine : %x ", 1456890));
 
 	printf("\n**********  UHexa  ********\n");
-	printf("%d\n", printf(   "real : %X\n", 398564540));
-	printf("%d\n", ft_printf("mine : %X\n", 398564540));
+	printf("%d\n", printf(   "real : %X ", 398564540));
+	printf("%d\n", ft_printf("mine : %X ", 398564540));
 
 	printf("\n**********  UHexa  ********\n");
-	printf("%d\n", printf(   "real : %x\n", -1));
-	printf("%d\n", ft_printf("mine : %x\n", -1));
+	printf("%d\n", printf(   "real : %x ", -1));
+	printf("%d\n", ft_printf("mine : %x ", -1));
 
 /*
 	printf("\n**********  LD  ********\n");
@@ -93,12 +93,12 @@ int	main(void)
 	printf("%d\n", ft_printf("mine : %lu\n", -54777895807));
 */
 	printf("\n**********  LONG INT  ********\n");
-	printf("%d\n", printf(   "real : %%\n"));
-	printf("%d\n", ft_printf("mine : %%\n"));
+	printf("%d\n", printf(   "real : %% "));
+	printf("%d\n", ft_printf("mine : %% "));
 
 	printf("\n**********  LONG INT  ********\n");
-	printf("%d\n", printf(   "real : %p\n", ptr));
-	printf("%d\n", ft_printf("mine : %p\n", ptr));
+	printf("%d\n", printf(   "real : %p ", ptr));
+	printf("%d\n", ft_printf("mine : %p ", ptr));
 
 	printf("\n**********  S NULL  ********\n");
 	printf("%d\n", printf(   " NULL %s NULL", (char *)0));
@@ -120,54 +120,54 @@ int	main(void)
 	// - . accumulable (nb / str)
 	printf("\n*****************  %%-   XXduxs  ***************\n");
 
-	printf("%d\n", printf(     "'%-50d'",    42));
-	printf("%d\n\n", ft_printf("'%-50d'",    42));
+	printf("%d\n", printf(     "'%-50d' ",    42));
+	printf("%d\n\n", ft_printf("'%-50d' ",    42));
 
 	//printf("%d\n", printf(     "'%-0d'",    42));
 	//printf("%d\n\n", ft_printf("'%-0d'",    42));
 
-	printf("%d\n", printf(     "'%-d'",    42));
-	printf("%d\n\n", ft_printf("'%-d'",    42));
+	printf("%d\n", printf(     "'%-d' ",    42));
+	printf("%d\n\n", ft_printf("'%-d' ",    42));
 
-	printf("%d\n", printf(     "'%-5d'",    42));
-	printf("%d\n\n", ft_printf("'%-5d'",    42));
+	printf("%d\n", printf(     "'%-5d' ",    42));
+	printf("%d\n\n", ft_printf("'%-5d' ",    42));
 
-	printf("%d\n", printf(     "'%-7d'",    42));
-	printf("%d\n\n", ft_printf("'%-7d'",    42));
+	printf("%d\n", printf(     "'%-7d' ",    42));
+	printf("%d\n\n", ft_printf("'%-7d' ",    42));
 
-	printf("%d\n", printf(     "'%-2s'",    "402"));
-	printf("%d\n\n", ft_printf("'%-2s'",    "402"));
+	printf("%d\n", printf(     "'%-2s' ",    "402"));
+	printf("%d\n\n", ft_printf("'%-2s' ",    "402"));
 
-	printf("%d\n", printf(     "'%-5s'",    "402"));
-	printf("%d\n\n", ft_printf("'%-5s'",    "402"));
+	printf("%d\n", printf(     "'%-5s' ",    "402"));
+	printf("%d\n\n", ft_printf("'%-5s' ",    "402"));
 
-	printf("%d\n", printf(     "'%-5s'",    "412302"));
-	printf("%d\n\n", ft_printf("'%-5s'",    "412302"));
+	printf("%d\n", printf(     "'%-5s' ",    "412302"));
+	printf("%d\n\n", ft_printf("'%-5s' ",    "412302"));
 
-	printf("%d\n", printf(     "'%-5p'",    "412302"));
-	printf("%d\n\n", ft_printf("'%-5p'",    "412302"));
+	printf("%d\n", printf(     "'%-5p' ",    "412302"));
+	printf("%d\n\n", ft_printf("'%-5p' ",    "412302"));
 
 
 
 	printf("\n*****************  %%0  XXduxs  ***************\n\n");
 
-	printf("%d\n", printf(     "'%05d'\n",      123));
-	printf("%d\n\n", ft_printf("'%05d'\n",      123));
+	printf("%d\n", printf(     "'%05d' ",      123));
+	printf("%d\n\n", ft_printf("'%05d' ",      123));
 
-	printf("%d\n", printf(     "'%0d'\n",   123));
-	printf("%d\n\n", ft_printf("'%0d'\n",   123));
+	printf("%d\n", printf(     "'%0d' ",   123));
+	printf("%d\n\n", ft_printf("'%0d' ",   123));
 
-	printf("%d\n", printf(     "'%02d'\n",   123));
-	printf("%d\n\n", ft_printf("'%02d'\n",   123));
+	printf("%d\n", printf(     "'%02d' ",   123));
+	printf("%d\n\n", ft_printf("'%02d' ",   123));
 
-	printf("%d\n", printf(     "'%03d'\n",   123));
-	printf("%d\n\n", ft_printf("'%03d'\n",   123));
+	printf("%d\n", printf(     "'%03d' ",   123));
+	printf("%d\n\n", ft_printf("'%03d' ",   123));
 
-	printf("%d\n", printf(     "'%030d'\n",   123));
-	printf("%d\n\n", ft_printf("'%030d'\n",   123));
+	printf("%d\n", printf(     "'%030d' ",   123));
+	printf("%d\n\n", ft_printf("'%030d' ",   123));
 
-	printf("%d\n", printf(     "'%030u'\n",   456));
-	printf("%d\n\n", ft_printf("'%030u'\n",   456));
+	printf("%d\n", printf(     "'%030u' ",   456));
+	printf("%d\n\n", ft_printf("'%030u' ",   456));
 
 /*
 	printf("%d\n", printf(     "'%030p'\n",   123));
@@ -197,32 +197,32 @@ int	main(void)
 
 	printf("\n***************  %%.  XXduxs  ***************\n\n");
 
-	printf("%d\n", printf(     "'%.5d'\n",      123));
-	printf("%d\n\n", ft_printf("'%.5d'\n",      123));
+	printf("%d\n", printf(     "'%.5d' ",      123));
+	printf("%d\n\n", ft_printf("'%.5d' ",      123));
 
-	printf("%d\n", printf(     "'%.d'\n",   123));
-	printf("%d\n\n", ft_printf("'%.d'\n",   123));
+	printf("%d\n", printf(     "'%.d' ",   123));
+	printf("%d\n\n", ft_printf("'%.d' ",   123));
 
-	printf("%d\n", printf(     "'%.2d'\n",   123));
-	printf("%d\n\n", ft_printf("'%.2d'\n",   123));
+	printf("%d\n", printf(     "'%.2d' ",   123));
+	printf("%d\n\n", ft_printf("'%.2d' ",   123));
 
-	printf("%d\n", printf(     "'%.3d'\n",   123));
-	printf("%d\n\n", ft_printf("'%.3d'\n",   123));
+	printf("%d\n", printf(     "'%.3d' ",   123));
+	printf("%d\n\n", ft_printf("'%.3d' ",   123));
 
-	printf("%d\n", printf(     "'%.30d'\n",   123));
-	printf("%d\n\n", ft_printf("'%.30d'\n",   123));
+	printf("%d\n", printf(     "'%.30d' ",   123));
+	printf("%d\n\n", ft_printf("'%.30d' ",   123));
 
-	printf("%d\n", printf(     "'%.30s'\n",   "123"));
-	printf("%d\n\n", ft_printf("'%.30s'\n",   "123"));
+	printf("%d\n", printf(     "'%.30s' ",   "123"));
+	printf("%d\n\n", ft_printf("'%.30s' ",   "123"));
 	
-	printf("%d\n", printf(     "'%.3s'\n",    "123"));
-	printf("%d\n\n", ft_printf("'%.3s'\n",    "123"));
+	printf("%d\n", printf(     "'%.3s' ",    "123"));
+	printf("%d\n\n", ft_printf("'%.3s' ",    "123"));
 
-	printf("%d\n", printf(     "'%.1s'\n",    "123"));
-	printf("%d\n\n", ft_printf("'%.1s'\n",    "123"));
+	printf("%d\n", printf(     "'%.1s' ",    "123"));
+	printf("%d\n\n", ft_printf("'%.1s' ",    "123"));
 
-	printf("%d\n", printf(     "'%.s'\n",    "123"));
-	printf("%d\n\n", ft_printf("'%.s'\n",    "123"));
+	printf("%d\n", printf(     "'%.s' ",    "123"));
+	printf("%d\n\n", ft_printf("'%.s' ",    "123"));
 
 	//printf("%d\n", printf(     "'%.p'\n",    "123"));
 	//printf("%d\n\n", ft_printf("'%.p'\n",    "123"));
@@ -233,41 +233,41 @@ int	main(void)
 	printf("\n***************  %%combinaison -.  ***************\n\n");
 
 
-	printf("%d\n", printf(     "'%-.s'\n",    "123"));
-	printf("%d\n\n", ft_printf("'%-.s'\n",    "123"));
+	printf("%d\n", printf(     "'%-.s' ",    "123"));
+	printf("%d\n\n", ft_printf("'%-.s' ",    "123"));
 
-	printf("%d\n", printf(     "'%-.5s'\n",    "123"));
-	printf("%d\n\n", ft_printf("'%-.5s'\n",    "123"));
+	printf("%d\n", printf(     "'%-.5s' ",    "123"));
+	printf("%d\n\n", ft_printf("'%-.5s' ",    "123"));
 
-	printf("%d\n", printf(     "'%-.1s'\n",    "123"));
-	printf("%d\n\n", ft_printf("'%-.1s'\n",    "123"));
+	printf("%d\n", printf(     "'%-.1s' ",    "123"));
+	printf("%d\n\n", ft_printf("'%-.1s' ",    "123"));
 
-	printf("%d\n", printf(     "'%-.5d'\n",    01123));
-	printf("%d\n\n", ft_printf("'%-.5d'\n",    01123));
+	printf("%d\n", printf(     "'%-.5d' ",    01123));
+	printf("%d\n\n", ft_printf("'%-.5d' ",    01123));
 
-	printf("%d\n", printf(     "'%-.1d'\n",    13));
-	printf("%d\n\n", ft_printf("'%-.1d'\n",    13));
+	printf("%d\n", printf(     "'%-.1d' ",    13));
+	printf("%d\n\n", ft_printf("'%-.1d' ",    13));
 
-	printf("%d\n", printf(     "'%-.05s'\n",    "123"));
-	printf("%d\n\n", ft_printf("'%-.05s'\n",    "123"));
+	printf("%d\n", printf(     "'%-.05s' ",    "123"));
+	printf("%d\n\n", ft_printf("'%-.05s' ",    "123"));
 
-	printf("%d\n", printf(     "'%-.01s'\n",    "123"));
-	printf("%d\n\n", ft_printf("'%-.01s'\n",    "123"));
+	printf("%d\n", printf(     "'%-.01s' ",    "123"));
+	printf("%d\n\n", ft_printf("'%-.01s' ",    "123"));
 
-	printf("%d\n", printf(     "'%-.05d'\n",    123));
-	printf("%d\n\n", ft_printf("'%-.05d'\n",    123));
+	printf("%d\n", printf(     "'%-.05d' ",    123));
+	printf("%d\n\n", ft_printf("'%-.05d' ",    123));
 
-	printf("%d\n", printf(     "'%-.02d'\n",    123));
-	printf("%d\n\n", ft_printf("'%-.02d'\n",    123));
+	printf("%d\n", printf(     "'%-.02d' ",    123));
+	printf("%d\n\n", ft_printf("'%-.02d' ",    123));
 
 	//printf("%d\n", printf(     "'%-.02p'\n",    ptr2));
 	//printf("%d\n\n", ft_printf("'%-.02p'\n",    ptr2));
 
-	printf("%d\n", printf(     "'%-.020u'\n",    123));
-	printf("%d\n\n", ft_printf("'%-.020u'\n",    123));
+	printf("%d\n", printf(     "'%-.020u' ",    123));
+	printf("%d\n\n", ft_printf("'%-.020u' ",    123));
 
-	printf("%d\n", printf(     "'%-.02s'\n",    "123"));
-	printf("%d\n\n", ft_printf("'%-.02s'\n",    "123"));
+	printf("%d\n", printf(     "'%-.02s' ",    "123"));
+	printf("%d\n\n", ft_printf("'%-.02s' ",    "123"));
 
 
 
@@ -276,17 +276,17 @@ int	main(void)
 
 	printf("\n***************  BONUS 2 ' ' ***************\n\n");
 
-	printf("%d\n", printf(     "'% d'\n",    123));
-	printf("%d\n\n", ft_printf("'% d'\n",    123));
+	printf("%d\n", printf(     "'% d' ",    123));
+	printf("%d\n\n", ft_printf("'% d' ",    123));
 
-	printf("%d\n", printf(     "'% 2d '\n",    123));
-	printf("%d\n\n", ft_printf("'% 2d '\n",    123));
+	printf("%d\n", printf(     "'% 2d ' ",    123));
+	printf("%d\n\n", ft_printf("'% 2d ' ",    123));
 
-	printf("%d\n", printf(     "'% 6d '\n",    123));
-	printf("%d\n\n", ft_printf("'% 6d '\n",    123));
+	printf("%d\n", printf(     "'% 6d ' ",    123));
+	printf("%d\n\n", ft_printf("'% 6d ' ",    123));
 
-	printf("%d\n", printf(     "'%s '\n",    "1234"));
-	printf("%d\n\n", ft_printf("'%s '\n",    "1234"));
+	printf("%d\n", printf(     "'%s ' ",    "1234"));
+	printf("%d\n\n", ft_printf("'%s ' ",    "1234"));
 
 	//printf("%d\n", printf(     "'%- 10d'\n",    11234)); a faire ?
 	//printf("%d\n\n", ft_printf("'%- 10d'\n",    11234));
@@ -303,42 +303,42 @@ int	main(void)
 
 
 
-	printf("%d\n", printf(          "'%#o'\n",    123456789));
-	printf("%d\n\n", ft_printf(     "'%#o'\n",    123456789));
+	printf("%d\n", printf(          "'%#o' ",    123456789));
+	printf("%d\n\n", ft_printf(     "'%#o' ",    123456789));
 
-	printf("%d\n", printf(          "'%#20o'\n",    123456789));
-	printf("%d\n\n", ft_printf(     "'%#20o'\n",    123456789));
+	printf("%d\n", printf(          "'%#20o' ",    123456789));
+	printf("%d\n\n", ft_printf(     "'%#20o' ",    123456789));
 
-	printf("%d\n", printf(          "'%#x'\n",    123456789));
-	printf("%d\n\n", ft_printf(     "'%#x'\n",    123456789));
+	printf("%d\n", printf(          "'%#x' ",    123456789));
+	printf("%d\n\n", ft_printf(     "'%#x' ",    123456789));
 
-	printf("%d\n", printf(          "'%#20x'\n",    123456789));
-	printf("%d\n\n", ft_printf(     "'%#20x'\n",    123456789));
+	printf("%d\n", printf(          "'%#20x' ",    123456789));
+	printf("%d\n\n", ft_printf(     "'%#20x' ",    123456789));
 
-	printf("%d\n", printf(          "'%#2x'\n",    123456789));
-	printf("%d\n\n", ft_printf(     "'%#2x'\n",    123456789));
+	printf("%d\n", printf(          "'%#2x' ",    123456789));
+	printf("%d\n\n", ft_printf(     "'%#2x' ",    123456789));
 
-	printf("%d\n", printf(          "'%#X'\n",    123456789));
-	printf("%d\n\n", ft_printf(     "'%#X'\n",    123456789));
+	printf("%d\n", printf(          "'%#X' ",    123456789));
+	printf("%d\n\n", ft_printf(     "'%#X' ",    123456789));
 
 
 
 	printf("\n***************  BONUS 2 + ***************\n\n");
 
-	printf("%d\n", printf(          "'%+d'\n",    123456789));
-	printf("%d\n\n", ft_printf(     "'%+d'\n",    123456789));
+	printf("%d\n", printf(          "'%+d' ",    123456789));
+	printf("%d\n\n", ft_printf(     "'%+d' ",    123456789));
 
-	printf("%d\n", printf(          "'%+20d'\n",  -123456789));
-	printf("%d\n\n", ft_printf(     "'%+20d'\n",  -123456789));
+	printf("%d\n", printf(          "'%+20d' ",  -123456789));
+	printf("%d\n\n", ft_printf(     "'%+20d' ",  -123456789));
 
-	printf("%d\n", printf(          "'%+20d'\n",  123456789));
-	printf("%d\n\n", ft_printf(     "'%+20d'\n",  123456789));
+	printf("%d\n", printf(          "'%+20d' ",  123456789));
+	printf("%d\n\n", ft_printf(     "'%+20d' ",  123456789));
 
-	printf("%d\n", printf(          "'%+2d'\n",    123456789));
-	printf("%d\n\n", ft_printf(     "'%+2d'\n",    123456789));
+	printf("%d\n", printf(          "'%+2d' ",    123456789));
+	printf("%d\n\n", ft_printf(     "'%+2d' ",    123456789));
 
-	printf("%d\n", printf(          "'%+20d'\n",    0));
-	printf("%d\n\n", ft_printf(     "'%+20d'\n",    0));
+	printf("%d\n", printf(          "'%+20d' ",    0));
+	printf("%d\n\n", ft_printf(     "'%+20d' ",    0));
 
 
 

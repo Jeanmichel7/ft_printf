@@ -6,7 +6,7 @@
 /*   By: jrasser <jrasser@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/07 16:16:54 by jrasser           #+#    #+#             */
-/*   Updated: 2022/03/13 03:40:59 by jrasser          ###   ########.fr       */
+/*   Updated: 2022/03/13 04:26:06 by jrasser          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,38 +17,21 @@ static unsigned int	ft_sub_flag(const char *str, int i, va_list ptr, int *z)
 	int		ret;
 
 	if (str[i] == '-')
-	{
-		i++;
-		ret = ft_dash_flag(str, i, ptr, z);
-	}
+		ret = ft_dash_flag(str, ++i, ptr, z);
 	if (str[i] == '.')
-	{
-		i++;
-		ret = ft_dot_flag(str, i, ptr, z);
-	}
+		ret = ft_dot_flag(str, ++i, ptr, z);
 	else if (str[i] == '0' && str[i + 1] != '-')
-	{
-		i++;
-		ret = ft_zero_flag(str, i, ptr, z);
-	}
+		ret = ft_zero_flag(str, ++i, ptr, z);
 	if (str[i] == ' ')
-	{
-		i++;
-		ret = ft_space_flag(str, i, ptr, z);
-	}
+		ret = ft_space_flag(str, ++i, ptr, z);
 	if (str[i] == '#')
-	{
-		i++;
-		ret = ft_diese_flag(str, i, ptr, z);
-	}
+		ret = ft_diese_flag(str, ++i, ptr, z);
 	if (str[i] == '+')
-	{
-		i++;
-		ret = ft_plus_flag(str, i, ptr, z);
-	}
+		ret = ft_plus_flag(str, ++i, ptr, z);
 	return (ret);
 }
 
+/*
 char	*ft_sub_printf_double(char c, va_list ptr)
 {
 	if (c == 'd')
@@ -59,6 +42,7 @@ char	*ft_sub_printf_double(char c, va_list ptr)
 		return (ft_uitoa(va_arg(ptr, unsigned int)));
 	return (NULL);
 }
+*/
 
 char	*ft_sub_char(char c, va_list ptr)
 {
@@ -99,10 +83,9 @@ int	ft_printf(const char *str, ...)
 	{
 		if (str[i] == '%' && str[++i + 1])
 		{
-			if (str[i] == '-' || str[i] == '0' || str[i] == '.' || str[i] == ' ' || str[i] == '#' || str[i] == '+')
+			if (str[i] == '-' || str[i] == '0' || str[i] == '.' || str[i] == ' '
+				|| str[i] == '#' || str[i] == '+')
 				i += ft_sub_flag(str, i, ptr, &z);
-			else if (str[i] == 'l')
-				z += ft_putstr(ft_sub_printf_double(str[i + 1], ptr));
 			else if (str[i] == 'p')
 				z += ft_putstr(ft_sub_char(str[i], ptr)) + 2;
 			else
