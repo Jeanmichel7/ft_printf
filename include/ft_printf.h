@@ -6,7 +6,7 @@
 /*   By: jrasser <jrasser@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/07 16:11:02 by jrasser           #+#    #+#             */
-/*   Updated: 2022/03/13 03:46:59 by jrasser          ###   ########.fr       */
+/*   Updated: 2022/03/14 09:03:38 by jrasser          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 # define FT_PRINTF_H
 
 # include <stdarg.h>
-# include "../libft_printf/libft.h"
+# include "../libft/libft.h"
 # include <unistd.h>
 # include <stdlib.h>
 # include <stdio.h>

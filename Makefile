@@ -6,7 +6,7 @@
 #    By: jrasser <jrasser@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/02/01 20:15:09 by jrasser           #+#    #+#              #
-#    Updated: 2022/03/13 02:03:48 by jrasser          ###   ########.fr        #
+#    Updated: 2022/03/14 13:13:01 by jrasser          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,7 +22,7 @@ SRCS		= src/ft_printf.c \
 
 OBJS		= ${SRCS:.c=.o}
 
-LIBFT		= make -C libft_printf/
+LIBFT		= make -C libft/
 
 NAME		= libftprintf.a
 
@@ -32,10 +32,11 @@ RM			= rm -f
 
 CFLAGS		= -Wall -Wextra -Werror
 
-LDFLAGS		= -I./include -I./libft_printf
+CPPFLAGS	= -I./include -I./libft
 
 ${NAME}:	${OBJS}
 			${LIBFT}
+			cp libft/libft.a $(NAME)
 			ar rc ${NAME} ${OBJS}
 
 all:		${NAME}
@@ -44,7 +45,8 @@ clean:
 			${RM} ${OBJS}
 
 fclean:		clean
-			${RM} ${NAME} libft_printf/*.o libft_printf/libft.a
+			${RM} ${NAME}
+			make fclean -C libft/
 
 re:			fclean all
 
