@@ -6,7 +6,7 @@
 /*   By: jrasser <jrasser@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/07 16:16:54 by jrasser           #+#    #+#             */
-/*   Updated: 2022/03/13 04:26:06 by jrasser          ###   ########.fr       */
+/*   Updated: 2022/03/15 11:52:06 by jrasser          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,28 +46,30 @@ char	*ft_sub_printf_double(char c, va_list ptr)
 
 char	*ft_sub_char(char c, va_list ptr)
 {
+	char * tmp;
+	tmp = NULL;
 	if (c == 'd' || c == 'i')
-		return (ft_itoa(va_arg(ptr, int)));
+		tmp = ft_itoa(va_arg(ptr, int));
 	else if (c == 'o')
-		return (ft_putunbr_base(va_arg(ptr, unsigned int), "01234567"));
+		tmp = ft_putunbr_base(va_arg(ptr, unsigned int), "01234567");
 	else if (c == 'u')
-		return (ft_uitoa(va_arg(ptr, unsigned int)));
+		tmp = ft_uitoa(va_arg(ptr, unsigned int));
 	else if (c == 'x')
-		return (ft_putunbr_base(va_arg(ptr, unsigned int), "0123456789abcdef"));
+		tmp = ft_putunbr_base(va_arg(ptr, unsigned int), "0123456789abcdef");
 	else if (c == 'X')
-		return (ft_putunbr_base(va_arg(ptr, unsigned int), "0123456789ABCDEF"));
+		tmp = ft_putunbr_base(va_arg(ptr, unsigned int), "0123456789ABCDEF");
 	else if (c == 's')
-		return (va_arg(ptr, char *));
+		return(va_arg(ptr, char *));
 	else if (c == 'c')
-		return (ctos(va_arg(ptr, int)));
+		tmp = ctos(va_arg(ptr, int));
 	else if (c == 'p')
 	{
-		ft_putstr("0x");
+		ft_putstr("0x", c);
 		return (ft_put_ptr(va_arg(ptr, unsigned long int), "0123456789abcdef"));
 	}
 	else if (c == '%')
 		return ("%");
-	return (NULL);
+	return (tmp);
 }
 
 int	ft_printf(const char *str, ...)
@@ -81,15 +83,16 @@ int	ft_printf(const char *str, ...)
 	va_start(ptr, str);
 	while (str[++i])
 	{
-		if (str[i] == '%' && str[++i + 1])
+		if (str[i] == '%' && str[i + 1])
 		{
+			i++;
 			if (str[i] == '-' || str[i] == '0' || str[i] == '.' || str[i] == ' '
 				|| str[i] == '#' || str[i] == '+')
 				i += ft_sub_flag(str, i, ptr, &z);
 			else if (str[i] == 'p')
-				z += ft_putstr(ft_sub_char(str[i], ptr)) + 2;
+				z += ft_putstr(ft_sub_char(str[i], ptr), str[i]) + 2;
 			else
-				z += ft_putstr(ft_sub_char(str[i], ptr));
+				z += ft_putstr(ft_sub_char(str[i], ptr), str[i]);
 		}
 		else
 			z += ft_put_char(str[i]);

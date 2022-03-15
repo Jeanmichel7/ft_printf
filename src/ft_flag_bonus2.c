@@ -6,7 +6,7 @@
 /*   By: jrasser <jrasser@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/13 02:03:52 by jrasser           #+#    #+#             */
-/*   Updated: 2022/03/13 04:36:41 by jrasser          ###   ########.fr       */
+/*   Updated: 2022/03/15 11:36:42 by jrasser          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ int	ft_space_flag(const char *str, int i, va_list ptr, int *z)
 		while (str_arg_len++ < nbr)
 			*z += ft_put_char(' ');
 	}
-	ft_putstr(str_arg);
+	ft_putstr(str_arg, str[i]);
 	return (ft_strlen(str_nbr) + 1);
 }
 
@@ -56,9 +56,9 @@ void	ft_sub_diese_flag(char c, size_t count_inital, char *str_nbr, int *z)
 		while (count_inital++ + 2 < (size_t)ft_atoi(str_nbr))
 			*z += ft_put_char(' ');
 		if (c == 'x')
-			*z += ft_putstr("0x");
+			*z += ft_putstr("0x", '\0');
 		else if (c == 'X')
-			*z += ft_putstr("0X");
+			*z += ft_putstr("0X", '\0');
 	}
 	else
 		while (count_inital++ < (size_t)ft_atoi(str_nbr))
@@ -77,7 +77,7 @@ int	ft_diese_flag(const char *str, int i, va_list ptr, int *z)
 	count_inital = ft_strlen(str_arg);
 	*z += count_inital;
 	ft_sub_diese_flag(str[i], count_inital, str_nbr, z);
-	ft_putstr(str_arg);
+	ft_putstr(str_arg, str[i]);
 	return (ft_strlen(str_nbr) + 1);
 }
 
@@ -104,7 +104,7 @@ int	ft_plus_flag(const char *str, int i, va_list ptr, int *z)
 	if (ft_strlen(str_arg) > nbr && str[i] == 's')
 		ft_space_flag_c(count_inital, nbr, str_arg, z);
 	else
-		ft_putstr(str_arg);
+		ft_putstr(str_arg, str[i]);
 	if (str[i] == 'p')
 		*z += 2;
 	return (ft_strlen(str_nbr) + 1);

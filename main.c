@@ -6,11 +6,11 @@
 /*   By: jrasser <jrasser@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/07 17:03:47 by jrasser           #+#    #+#             */
-/*   Updated: 2022/03/13 04:25:07 by jrasser          ###   ########.fr       */
+/*   Updated: 2022/03/15 11:37:34 by jrasser          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "./include/ft_printf.h"
 #include <stdio.h>
 
 int AddNumbers(int n, ...)
@@ -32,15 +32,34 @@ int	main(void)
 
 	ptr = "test";
 	ptr2 = &ptr;
-
+	char *s2 = "Mussum Ipsum, cacilds vidis litro abertis. Posuere libero varius. Nullam a nisl ut ante blandit hendrerit. Aenean sit amet nisi. Atirei o pau no gatis, per gatis num morreus.";
 
 	printf("\n**********  STRING  ********\n");
 	printf("%d\n", printf(   "real : %s apres ", "coucou"));
 	printf("%d\n", ft_printf("mine : %s apres ", "coucou"));
 
+	printf("%d\n", printf(   "real :%s", ""));
+	printf("%d\n", ft_printf("mine :%s", ""));
+	
+	printf("%d\n", printf(   "real : %s", ""));
+	printf("%d\n", ft_printf("mine : %s", ""));
+	
+	printf("%d\n", printf(   "real :  %s %s %s %s %s", " - ", "", "4", "", s2));
+	printf("%d\n", ft_printf("mine :  %s %s %s %s %s", " - ", "", "4", "", s2));
+	
+	
+	
+	
 	printf("\n**********  CHAR  ********\n");
 	printf("%d\n", printf(   "real : %c ", 't'));
 	printf("%d\n", ft_printf("mine : %c ", 't'));
+
+
+	printf("%d\n", printf(   "real : %c ", '0'));
+	printf("%d\n", ft_printf("mine : %c ", '0'));
+
+	printf("%d\n", printf(   "real : %c ", '0' - 256));
+	printf("%d\n", ft_printf("mine : %c ", '0' - 256));
 
 	printf("\n**********  INT  ********\n");
 	printf("%d\n", printf(   "real : %d ", 12456835));
