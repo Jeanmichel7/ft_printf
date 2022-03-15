@@ -6,7 +6,7 @@
 /*   By: jrasser <jrasser@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/07 17:03:47 by jrasser           #+#    #+#             */
-/*   Updated: 2022/03/15 12:01:30 by jrasser          ###   ########.fr       */
+/*   Updated: 2022/03/15 20:46:39 by jrasser          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -139,6 +139,9 @@ int	main(void)
 	// - . accumulable (nb / str)
 	printf("\n*****************  %%-   XXduxs  ***************\n");
 
+	printf("%d\n", printf(     "'%-2d' ",    42));
+	printf("%d\n\n", ft_printf("'%-2d' ",    42));
+
 	printf("%d\n", printf(     "'%-50d' ",    42));
 	printf("%d\n\n", ft_printf("'%-50d' ",    42));
 
@@ -165,6 +168,9 @@ int	main(void)
 
 	printf("%d\n", printf(     "'%-5p' ",    "412302"));
 	printf("%d\n\n", ft_printf("'%-5p' ",    "412302"));
+
+	printf("%d\n", printf(     "'%-5p' ",    (void*)0));
+	printf("%d\n\n", ft_printf("'%-5p' ",    (void*)0));
 
 
 

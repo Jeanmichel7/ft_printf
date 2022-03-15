@@ -6,7 +6,7 @@
 /*   By: jrasser <jrasser@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/11 01:35:56 by jrasser           #+#    #+#             */
-/*   Updated: 2022/03/15 12:01:37 by jrasser          ###   ########.fr       */
+/*   Updated: 2022/03/15 20:48:44 by jrasser          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ unsigned int	ft_put_char(char c)
 unsigned int	ft_putstr(char *str, char c)
 {
 	int	len;
-	
+
 	len = ft_strlen(str);
 	if (!str)
 	{
@@ -40,7 +40,6 @@ unsigned int	ft_putstr(char *str, char c)
 	}
 	if (c == 's')
 	{
-
 		write(1, str, len);
 		return (len);
 	}
@@ -56,19 +55,3 @@ unsigned int	ft_putstr(char *str, char c)
 	}
 	return (0);
 }
-
-
-
-/*unsigned int	ft_putstrstr(char *str)
-{
-	int	len;
-	
-	len = ft_strlen(str);
-	if (!str)
-	{
-		write(1, "(null)", 6);
-		return (6);
-	}
-	write(1, str, len);
-	return (len);
-}*/

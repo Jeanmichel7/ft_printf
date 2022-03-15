@@ -6,7 +6,7 @@
 /*   By: jrasser <jrasser@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/08 01:18:04 by jrasser           #+#    #+#             */
-/*   Updated: 2022/03/14 15:29:19 by jrasser          ###   ########.fr       */
+/*   Updated: 2022/03/15 20:17:19 by jrasser          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,20 +33,18 @@ char	*ft_strreverse_0x(char	*str)
 
 char	*ft_put_ptr(unsigned long int nbr, char *base)
 {
-	char			*str;
-	char			*ret;
-	int				i;
+	char	*str;
+	char	*ret;
+	int		i;
 
-	
-	/*if (!nbr)
+	if (!nbr)
 	{
 		str = malloc(sizeof(char) * 2);
 		str[0] = '0';
 		str[1] = '\0';
 		return (str);
-	}*/
+	}
 	str = malloc(sizeof(char) * (12 + 1));
-
 	i = 0;
 	while (nbr)
 	{

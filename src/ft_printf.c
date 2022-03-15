@@ -6,7 +6,7 @@
 /*   By: jrasser <jrasser@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/07 16:16:54 by jrasser           #+#    #+#             */
-/*   Updated: 2022/03/15 12:02:01 by jrasser          ###   ########.fr       */
+/*   Updated: 2022/03/15 20:19:34 by jrasser          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 static unsigned int	ft_sub_flag(const char *str, int i, va_list ptr, int *z)
 {
-	int		ret;
+	int	ret;
 
 	if (str[i] == '-')
 		ret = ft_dash_flag(str, ++i, ptr, z);
@@ -31,22 +31,10 @@ static unsigned int	ft_sub_flag(const char *str, int i, va_list ptr, int *z)
 	return (ret);
 }
 
-/*
-char	*ft_sub_printf_double(char c, va_list ptr)
-{
-	if (c == 'd')
-		return (ft_litoa(va_arg(ptr, long int)));
-	else if (c == 'o')
-		return (ft_putunbr_base(va_arg(ptr, unsigned int), "01234567"));
-	else if (c == 'u')
-		return (ft_uitoa(va_arg(ptr, unsigned int)));
-	return (NULL);
-}
-*/
-
 char	*ft_sub_char(char c, va_list ptr)
 {
-	char * tmp;
+	char	*tmp;
+
 	tmp = NULL;
 	if (c == 'd' || c == 'i')
 		tmp = ft_itoa(va_arg(ptr, int));
@@ -59,7 +47,7 @@ char	*ft_sub_char(char c, va_list ptr)
 	else if (c == 'X')
 		tmp = ft_putunbr_base(va_arg(ptr, unsigned int), "0123456789ABCDEF");
 	else if (c == 's')
-		return(va_arg(ptr, char *));
+		return (va_arg(ptr, char *));
 	else if (c == 'c')
 		tmp = ctos(va_arg(ptr, int));
 	else if (c == 'p')
