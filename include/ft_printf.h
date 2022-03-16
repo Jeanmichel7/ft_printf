@@ -6,7 +6,7 @@
 /*   By: jrasser <jrasser@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/07 16:11:02 by jrasser           #+#    #+#             */
-/*   Updated: 2022/03/14 09:03:38 by jrasser          ###   ########.fr       */
+/*   Updated: 2022/03/16 01:13:10 by jrasser          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,8 @@ unsigned int	ft_putstrstr(char *str);
 
 /* BONUS */
 
+unsigned int	ft_putstr_minus_less(char *str, char c);
+char			*ft_arg_multi(const char *str, int i);
 char			*ft_arg_multi(const char *str, int i);
 int				ft_dash_flag(const char *str, int i, va_list ptr, int *z);
 int				ft_dot_flag(const char *str, int i, va_list ptr, int *z);

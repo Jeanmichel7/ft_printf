@@ -6,7 +6,7 @@
 /*   By: jrasser <jrasser@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/08 01:18:04 by jrasser           #+#    #+#             */
-/*   Updated: 2022/03/15 20:17:19 by jrasser          ###   ########.fr       */
+/*   Updated: 2022/03/16 01:00:18 by jrasser          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,15 +27,14 @@ char	*ft_strreverse_0x(char	*str)
 		i++;
 	}
 	ret[i] = '\0';
-	free (str);
 	return (ret);
 }
 
 char	*ft_put_ptr(unsigned long int nbr, char *base)
 {
-	char	*str;
-	char	*ret;
-	int		i;
+	char			*str;
+	char			*ret;
+	int				i;
 
 	if (!nbr)
 	{

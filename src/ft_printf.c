@@ -6,7 +6,7 @@
 /*   By: jrasser <jrasser@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/07 16:16:54 by jrasser           #+#    #+#             */
-/*   Updated: 2022/03/15 20:19:34 by jrasser          ###   ########.fr       */
+/*   Updated: 2022/03/16 00:57:35 by jrasser          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ char	*ft_sub_char(char c, va_list ptr)
 	else if (c == 'p')
 	{
 		ft_putstr("0x", c);
-		return (ft_put_ptr(va_arg(ptr, unsigned long int), "0123456789abcdef"));
+		tmp = ft_put_ptr(va_arg(ptr, unsigned long int), "0123456789abcdef");
 	}
 	else if (c == '%')
 		return ("%");

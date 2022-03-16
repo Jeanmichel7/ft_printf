@@ -6,31 +6,13 @@
 /*   By: jrasser <jrasser@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/13 01:06:49 by jrasser           #+#    #+#             */
-/*   Updated: 2022/03/15 20:49:33 by jrasser          ###   ########.fr       */
+/*   Updated: 2022/03/16 01:44:42 by jrasser          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/ft_printf.h"
 
-char	*ft_arg_multi(const char *str, int i)
-{
-	int		j;
-	char	*nbr;
-
-	j = 0;
-	while (str[i] >= '0' && str[i] <= '9')
-	{
-		i++;
-		j++;
-	}
-	nbr = malloc(sizeof(char) * (j + 1));
-	i -= j;
-	j = 0;
-	while (str[i] >= '0' && str[i] <= '9')
-		nbr[j++] = str[i++];
-	nbr[j] = '\0';
-	return (nbr);
-}
+/*      printf(    "' %-4p ", 9)  */
 
 int	ft_dash_flag(const char *str, int i, va_list ptr, int *z)
 {
@@ -96,6 +78,20 @@ int	ft_dot_flag(const char *str, int i, va_list ptr, int *z)
 	return (ft_strlen(str_nbr) + 1);
 }
 
+int	ft_zero_sub_flag(const char *str, int i, char *c, int *z)
+{
+	int	ret;
+
+	ret = 0;
+	if (str[i] == 's' || str[i] == 'c')
+		*c = ' ';
+	if (str[i] == 'p')
+		ret += 2;
+	if (str[i] == 'p')
+		*z += 2;
+	return (ret);
+}
+
 int	ft_zero_flag(const char *str, int i, va_list ptr, int *z)
 {
 	char	*str_nbr;
@@ -111,14 +107,14 @@ int	ft_zero_flag(const char *str, int i, va_list ptr, int *z)
 	count_inital = ft_strlen(str_arg);
 	*z += count_inital;
 	c = '0';
-	if (str[i] == 's' || str[i] == 'c')
-		c = ' ';
-	if (str[i] == 'p')
-		count_inital += 2;
-	if (str[i] == 'p')
-		*z += 2;
+	count_inital += ft_zero_sub_flag(str, i, &c, z);
+	if (str_arg[0] && str_arg[0] == '-')
+		ft_put_char('-');
 	while (count_inital++ < nbr)
 		*z += ft_put_char(c);
-	ft_putstr(str_arg, str[i]);
+	if (str_arg[0] && str_arg[0] == '-')
+		ft_putstr_minus_less(str_arg, str[i]);
+	else
+		ft_putstr(str_arg, str[i]);
 	return (ft_strlen(str_nbr) + 1);
 }

@@ -6,7 +6,7 @@
 /*   By: jrasser <jrasser@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/13 02:03:52 by jrasser           #+#    #+#             */
-/*   Updated: 2022/03/15 11:36:42 by jrasser          ###   ########.fr       */
+/*   Updated: 2022/03/15 22:18:55 by jrasser          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,24 +85,23 @@ int	ft_plus_flag(const char *str, int i, va_list ptr, int *z)
 {
 	char	*str_nbr;
 	char	*str_arg;
-	size_t	nbr;
 	size_t	count_inital;
 
 	str_nbr = ft_arg_multi(str, i);
 	i += ft_strlen(str_nbr);
 	str_arg = ft_sub_char(str[i], ptr);
-	nbr = ft_atoi(str_nbr);
 	count_inital = ft_strlen(str_arg);
 	*z += count_inital;
-	while (count_inital++ + 1 < nbr)
+	while (count_inital++ + 1 < (size_t)ft_atoi(str_nbr))
 		*z += ft_put_char(' ');
 	if (atoi(str_arg) >= 0)
 		*z += ft_put_char('+');
 	else
-		*z += ft_put_char(' ');
+		if (ft_strlen(str_arg) < (size_t)ft_atoi(str_nbr))
+			*z += ft_put_char(' ');
 	count_inital = 0;
-	if (ft_strlen(str_arg) > nbr && str[i] == 's')
-		ft_space_flag_c(count_inital, nbr, str_arg, z);
+	if (count_inital > (size_t)ft_atoi(str_nbr) && str[i] == 's')
+		ft_space_flag_c(count_inital, ft_atoi(str_nbr), str_arg, z);
 	else
 		ft_putstr(str_arg, str[i]);
 	if (str[i] == 'p')
