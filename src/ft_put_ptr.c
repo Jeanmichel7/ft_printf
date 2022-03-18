@@ -6,7 +6,7 @@
 /*   By: jrasser <jrasser@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/08 01:18:04 by jrasser           #+#    #+#             */
-/*   Updated: 2022/03/16 01:00:18 by jrasser          ###   ########.fr       */
+/*   Updated: 2022/03/18 21:06:16 by jrasser          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,10 +27,11 @@ char	*ft_strreverse_0x(char	*str)
 		i++;
 	}
 	ret[i] = '\0';
+	free (str);
 	return (ret);
 }
 
-char	*ft_put_ptr(unsigned long int nbr, char *base)
+char	*ft_put_ptr(unsigned long long int nbr, char *base)
 {
 	char			*str;
 	char			*ret;
@@ -43,7 +44,7 @@ char	*ft_put_ptr(unsigned long int nbr, char *base)
 		str[1] = '\0';
 		return (str);
 	}
-	str = malloc(sizeof(char) * (12 + 1));
+	str = malloc(sizeof(char) * (17));
 	i = 0;
 	while (nbr)
 	{
@@ -51,6 +52,7 @@ char	*ft_put_ptr(unsigned long int nbr, char *base)
 		nbr = nbr / 16;
 		i++;
 	}
+	str[i] = '\0';
 	while (--i >= 0)
 		str[i] = base[(int)str[i]];
 	ret = ft_strreverse_0x(str);

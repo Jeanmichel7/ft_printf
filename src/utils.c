@@ -6,7 +6,7 @@
 /*   By: jrasser <jrasser@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/11 01:35:56 by jrasser           #+#    #+#             */
-/*   Updated: 2022/03/16 01:38:18 by jrasser          ###   ########.fr       */
+/*   Updated: 2022/03/18 21:25:45 by jrasser          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,12 @@ char	*ctos(char c)
 {
 	char	*str;
 
+	if (c == 0)
+	{
+		str = malloc(sizeof(char));
+		str[0] = '\0';
+		return (str);
+	}
 	str = malloc(sizeof(char) * 2);
 	str[0] = c;
 	str[1] = '\0';
@@ -34,15 +40,15 @@ unsigned int	ft_putstr(char *str, char c)
 
 	len = ft_strlen(str);
 	if (!str)
+		return (write(1, "(null)", 6));
+	if (str[0] == '\0' && c == 'c')
 	{
-		write(1, "(null)", 6);
-		return (6);
+		write (1, str, 1);
+		free (str);
+		return (1);
 	}
 	if (c == 's')
-	{
-		write(1, str, len);
-		return (len);
-	}
+		return (write(1, str, len));
 	else
 	{
 		write(1, str, len);

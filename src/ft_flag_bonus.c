@@ -6,13 +6,11 @@
 /*   By: jrasser <jrasser@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/13 01:06:49 by jrasser           #+#    #+#             */
-/*   Updated: 2022/03/16 01:44:42 by jrasser          ###   ########.fr       */
+/*   Updated: 2022/03/18 21:24:29 by jrasser          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/ft_printf.h"
-
-/*      printf(    "' %-4p ", 9)  */
 
 int	ft_dash_flag(const char *str, int i, va_list ptr, int *z)
 {
@@ -22,32 +20,33 @@ int	ft_dash_flag(const char *str, int i, va_list ptr, int *z)
 	size_t	count_inital;
 	size_t	len_arg;
 
-	if (str[i] != '.')
-	{
-		str_nbr = ft_arg_multi(str, i);
-		i += ft_strlen(str_nbr);
-		str_arg = ft_sub_char(str[i], ptr);
-		len_arg = ft_strlen(str_arg);
-		nbr = ft_atoi(str_nbr);
-		ft_putstr(str_arg, str[i]);
-		*z += len_arg;
-		count_inital = 0;
-		if (len_arg < nbr)
-			count_inital = nbr - len_arg + 1;
-		while (count_inital && --count_inital)
-			*z += ft_put_char(' ');
-		if (str[i] == 'p')
-			*z += 2;
-		return (ft_strlen(str_nbr) + 1);
-	}
-	return (0);
+	str_nbr = ft_arg_multi(str, i);
+	i += ft_strlen(str_nbr);
+	str_arg = ft_sub_char(str[i], ptr);
+	len_arg = ft_strlen(str_arg);
+	nbr = ft_atoi(str_nbr);
+	ft_putstr(str_arg, str[i]);
+	*z += len_arg;
+	count_inital = 0;
+	if (len_arg < nbr)
+		count_inital = nbr - len_arg + 1;
+	while (count_inital && --count_inital)
+		*z += ft_put_char(' ');
+	if (str[i] == 'p')
+		*z += 2;
+	count_inital = ft_strlen(str_nbr);
+	free(str_nbr);
+	return (count_inital + 1);
 }
 
-void	ft_dot_flag_sub(size_t count_inital, size_t nbr, char *str_arg, int *z)
+void	ft_dot_flag_sub( size_t nbr, char *str_arg, int *z)
 {
-	while (count_inital < nbr)
-		ft_put_char(str_arg[count_inital++]);
-	*z -= ft_strlen(str_arg) - count_inital;
+	size_t	i;
+
+	i = 0;
+	while (i < nbr)
+		ft_put_char(str_arg[i++]);
+	*z -= ft_strlen(str_arg) - i;
 }
 
 int	ft_dot_flag(const char *str, int i, va_list ptr, int *z)
@@ -66,16 +65,17 @@ int	ft_dot_flag(const char *str, int i, va_list ptr, int *z)
 	if (str[i] != 's' && str[i] != 'c')
 		while (count_inital++ < nbr)
 			*z += ft_put_char('0');
-	count_inital = 0;
 	if (ft_strlen(str_arg) > nbr && str[i] == 's')
-		ft_dot_flag_sub(count_inital, nbr, str_arg, z);
+		ft_dot_flag_sub(nbr, str_arg, z);
 	else
 		ft_putstr(str_arg, str[i]);
 	if (str[i] == 'p')
 		*z += 2;
 	if (str[i - ft_strlen(str_nbr) - 2] == '-')
 		return (ft_strlen(str_nbr) + 2);
-	return (ft_strlen(str_nbr) + 1);
+	count_inital = ft_strlen(str_nbr);
+	free(str_nbr);
+	return (count_inital + 1);
 }
 
 int	ft_zero_sub_flag(const char *str, int i, char *c, int *z)
@@ -116,5 +116,7 @@ int	ft_zero_flag(const char *str, int i, va_list ptr, int *z)
 		ft_putstr_minus_less(str_arg, str[i]);
 	else
 		ft_putstr(str_arg, str[i]);
-	return (ft_strlen(str_nbr) + 1);
+	count_inital = ft_strlen(str_nbr);
+	free(str_nbr);
+	return (count_inital + 1);
 }

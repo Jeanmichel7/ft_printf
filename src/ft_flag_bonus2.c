@@ -6,7 +6,7 @@
 /*   By: jrasser <jrasser@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/13 02:03:52 by jrasser           #+#    #+#             */
-/*   Updated: 2022/03/15 22:18:55 by jrasser          ###   ########.fr       */
+/*   Updated: 2022/03/18 21:31:45 by jrasser          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,9 @@ int	ft_space_flag(const char *str, int i, va_list ptr, int *z)
 			*z += ft_put_char(' ');
 	}
 	ft_putstr(str_arg, str[i]);
-	return (ft_strlen(str_nbr) + 1);
+	str_arg_len = ft_strlen(str_nbr);
+	free(str_nbr);
+	return (str_arg_len + 1);
 }
 
 void	ft_sub_diese_flag(char c, size_t count_inital, char *str_nbr, int *z)
@@ -78,7 +80,9 @@ int	ft_diese_flag(const char *str, int i, va_list ptr, int *z)
 	*z += count_inital;
 	ft_sub_diese_flag(str[i], count_inital, str_nbr, z);
 	ft_putstr(str_arg, str[i]);
-	return (ft_strlen(str_nbr) + 1);
+	count_inital = ft_strlen(str_nbr);
+	free(str_nbr);
+	return (count_inital + 1);
 }
 
 int	ft_plus_flag(const char *str, int i, va_list ptr, int *z)
@@ -99,12 +103,13 @@ int	ft_plus_flag(const char *str, int i, va_list ptr, int *z)
 	else
 		if (ft_strlen(str_arg) < (size_t)ft_atoi(str_nbr))
 			*z += ft_put_char(' ');
-	count_inital = 0;
 	if (count_inital > (size_t)ft_atoi(str_nbr) && str[i] == 's')
 		ft_space_flag_c(count_inital, ft_atoi(str_nbr), str_arg, z);
 	else
 		ft_putstr(str_arg, str[i]);
 	if (str[i] == 'p')
 		*z += 2;
-	return (ft_strlen(str_nbr) + 1);
+	count_inital = ft_strlen(str_nbr);
+	free(str_nbr);
+	return (count_inital + 1);
 }
