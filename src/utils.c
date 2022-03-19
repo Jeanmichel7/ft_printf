@@ -6,7 +6,7 @@
 /*   By: jrasser <jrasser@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/11 01:35:56 by jrasser           #+#    #+#             */
-/*   Updated: 2022/03/18 21:25:45 by jrasser          ###   ########.fr       */
+/*   Updated: 2022/03/19 22:23:36 by jrasser          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,9 +38,9 @@ unsigned int	ft_putstr(char *str, char c)
 {
 	int	len;
 
-	len = ft_strlen(str);
 	if (!str)
 		return (write(1, "(null)", 6));
+	len = ft_strlen(str);
 	if (str[0] == '\0' && c == 'c')
 	{
 		write (1, str, 1);
