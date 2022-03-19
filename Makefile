@@ -6,7 +6,7 @@
 #    By: jrasser <jrasser@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/02/01 20:15:09 by jrasser           #+#    #+#              #
-#    Updated: 2022/03/16 01:11:18 by jrasser          ###   ########.fr        #
+#    Updated: 2022/03/19 00:54:13 by jrasser          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,7 +19,8 @@ SRCS		= src/ft_printf.c \
 			src/ft_litoa.c \
 			src/ft_flag_bonus.c \
 			src/ft_flag_bonus2.c \
-			src/ft_arg_multi.c
+			src/ft_arg_multi.c \
+			src/ft_flag_dot_bonus.c
 
 OBJS		= ${SRCS:.c=.o}
 
@@ -41,6 +42,7 @@ ${NAME}:	${OBJS}
 			ar rc ${NAME} ${OBJS}
 
 all:		${NAME}
+
 bonus:		all
 
 clean:		

@@ -6,7 +6,7 @@
 /*   By: jrasser <jrasser@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/13 01:06:49 by jrasser           #+#    #+#             */
-/*   Updated: 2022/03/18 21:24:29 by jrasser          ###   ########.fr       */
+/*   Updated: 2022/03/19 00:53:26 by jrasser          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,45 +34,6 @@ int	ft_dash_flag(const char *str, int i, va_list ptr, int *z)
 		*z += ft_put_char(' ');
 	if (str[i] == 'p')
 		*z += 2;
-	count_inital = ft_strlen(str_nbr);
-	free(str_nbr);
-	return (count_inital + 1);
-}
-
-void	ft_dot_flag_sub( size_t nbr, char *str_arg, int *z)
-{
-	size_t	i;
-
-	i = 0;
-	while (i < nbr)
-		ft_put_char(str_arg[i++]);
-	*z -= ft_strlen(str_arg) - i;
-}
-
-int	ft_dot_flag(const char *str, int i, va_list ptr, int *z)
-{
-	char	*str_nbr;
-	char	*str_arg;
-	size_t	nbr;
-	size_t	count_inital;
-
-	str_nbr = ft_arg_multi(str, i);
-	i += ft_strlen(str_nbr);
-	str_arg = ft_sub_char(str[i], ptr);
-	nbr = ft_atoi(str_nbr);
-	count_inital = ft_strlen(str_arg);
-	*z += count_inital;
-	if (str[i] != 's' && str[i] != 'c')
-		while (count_inital++ < nbr)
-			*z += ft_put_char('0');
-	if (ft_strlen(str_arg) > nbr && str[i] == 's')
-		ft_dot_flag_sub(nbr, str_arg, z);
-	else
-		ft_putstr(str_arg, str[i]);
-	if (str[i] == 'p')
-		*z += 2;
-	if (str[i - ft_strlen(str_nbr) - 2] == '-')
-		return (ft_strlen(str_nbr) + 2);
 	count_inital = ft_strlen(str_nbr);
 	free(str_nbr);
 	return (count_inital + 1);

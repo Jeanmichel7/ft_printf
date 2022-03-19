@@ -6,7 +6,7 @@
 /*   By: jrasser <jrasser@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/13 02:03:52 by jrasser           #+#    #+#             */
-/*   Updated: 2022/03/18 21:31:45 by jrasser          ###   ########.fr       */
+/*   Updated: 2022/03/19 01:28:45 by jrasser          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,9 +30,11 @@ int	ft_space_flag(const char *str, int i, va_list ptr, int *z)
 	i += ft_strlen(str_nbr);
 	str_arg = ft_sub_char(str[i], ptr);
 	nbr = ft_atoi(str_nbr);
+	//printf("nb '%ld' ", nbr);
+
 	str_arg_len = ft_strlen(str_arg);
 	*z += str_arg_len;
-	if (str[i] != 's' && str[i] != 'c')
+	if (nbr != 0)
 	{
 		*z += ft_put_char(' ');
 		str_arg_len++;
@@ -76,6 +78,13 @@ int	ft_diese_flag(const char *str, int i, va_list ptr, int *z)
 	str_nbr = ft_arg_multi(str, i);
 	i += ft_strlen(str_nbr);
 	str_arg = ft_sub_char(str[i], ptr);
+	if (str_arg && str_arg[0] == '0')
+	{
+		*z += ft_put_char('0');
+		count_inital = ft_strlen(str_nbr);
+		free(str_nbr);
+		return (count_inital + 1);
+	}
 	count_inital = ft_strlen(str_arg);
 	*z += count_inital;
 	ft_sub_diese_flag(str[i], count_inital, str_nbr, z);
