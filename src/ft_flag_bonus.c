@@ -6,7 +6,7 @@
 /*   By: jrasser <jrasser@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/13 01:06:49 by jrasser           #+#    #+#             */
-/*   Updated: 2022/03/19 22:33:23 by jrasser          ###   ########.fr       */
+/*   Updated: 2022/03/22 03:11:21 by jrasser          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,17 +23,18 @@ int	ft_dash_flag(const char *str, int i, va_list ptr, int *z)
 	str_nbr = ft_arg_multi(str, i);
 	i += ft_strlen(str_nbr);
 	str_arg = ft_sub_char(str[i], ptr);
-	len_arg = ft_strlen(str_arg);
 	nbr = ft_atoi(str_nbr);
-	ft_putstr(str_arg, str[i]);
-	*z += len_arg;
 	count_inital = 0;
+	if (str[i] == 'p')
+		len_arg = ft_strlen(str_arg) + 2;
+	else
+		len_arg = ft_strlen(str_arg);
+	*z += len_arg;
+	ft_putstr(str_arg, str[i]);
 	if (len_arg < nbr)
 		count_inital = nbr - len_arg + 1;
 	while (count_inital && --count_inital)
 		*z += ft_put_char(' ');
-	if (str[i] == 'p')
-		*z += 2;
 	count_inital = ft_strlen(str_nbr);
 	free(str_nbr);
 	return (count_inital + 1);
