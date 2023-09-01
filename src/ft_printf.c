@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jrasser <jrasser@student.42.fr>            +#+  +:+       +#+        */
+/*   By: jrasser <jrasser@student.42mulhouse.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/07 16:16:54 by jrasser           #+#    #+#             */
-/*   Updated: 2022/03/22 03:33:12 by jrasser          ###   ########.fr       */
+/*   Updated: 2023/09/01 19:08:16 by jrasser          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ static unsigned int	ft_sub_flag(const char *str, int i, va_list ptr, int *z)
 		ret = ft_dash_flag(str, ++i, ptr, z);
 	else if (str[i] == '-' && str[i + 1] == '.')
 		ret = ft_dot_flag(str, i + 2, ptr, z) + 1;
-	else if (str[i] == '.' && str[i - 1] != '-')	//check le else if
+	else if (str[i] == '.' && str[i - 1] != '-')
 		ret = ft_dot_flag(str, ++i, ptr, z);
 	else if (str[i] == '0' && str[i + 1] != '-')
 		ret = ft_zero_flag(str, ++i, ptr, z);

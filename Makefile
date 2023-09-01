@@ -3,15 +3,15 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: jrasser <jrasser@student.42.fr>            +#+  +:+       +#+         #
+#    By: jrasser <jrasser@student.42mulhouse.fr>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/02/01 20:15:09 by jrasser           #+#    #+#              #
-#    Updated: 2022/03/19 00:54:13 by jrasser          ###   ########.fr        #
+#    Updated: 2023/09/01 19:03:02 by jrasser          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 SRCS		= src/ft_printf.c \
-			src/utils.c \
+			src/utils_ft_printf.c \
 			src/ft_itoa_printf.c \
 			src/ft_put_ptr.c \
 			src/ft_putunbr_base.c \
